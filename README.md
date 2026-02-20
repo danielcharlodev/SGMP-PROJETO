@@ -54,3 +54,86 @@ Criar um **Back-End robusto e seguro** para:
 ---
 
 ## 🔄 Fluxo de Atendimento
+
+
+---
+
+## 📋 Funcionalidades
+
+### 👤 Gestão de Usuários
+- Cadastro e login  
+- Controle de permissões  
+
+### 🧾 Abertura de Chamados
+- Tipo (Elétrica, Hidráulica, Outros)  
+- Descrição do problema  
+- Local da ocorrência  
+
+### 🔁 Atualização de Status
+- Workflow padronizado  
+
+### 📍 Histórico por Local
+- Consulta de serviços anteriores  
+
+### 🔔 Notificações
+- Progresso do chamado (simulado)
+
+---
+
+## 📡 Principais Endpoints
+
+### 🔐 Autenticação
+
+| Método | Rota | Função |
+|-------|------|-------|
+| POST | `/api/register` | Criar usuário |
+| POST | `/api/login` | Login |
+
+### 🧾 Chamados
+
+| Método | Rota | Função |
+|-------|------|-------|
+| POST | `/api/tickets` | Abrir chamado |
+| GET | `/api/tickets` | Listar chamados |
+| GET | `/api/tickets/{id}` | Detalhar chamado |
+| PUT | `/api/tickets/{id}/status` | Atualizar status |
+| GET | `/api/history/{local}` | Histórico por local |
+
+---
+
+## 🗃 Banco de Dados (Resumo)
+
+### 📌 users
+
+| Campo | Tipo |
+|------|-----|
+| id | bigint |
+| name | string |
+| email | string |
+| password | string |
+| role | enum |
+
+### 📌 tickets
+
+| Campo | Tipo |
+|------|-----|
+| id | bigint |
+| type | string |
+| description | text |
+| location | string |
+| status | string |
+| user_id | foreign key |
+| created_at | timestamp |
+
+---
+
+## ⚙️ Como Executar o Projeto
+
+```bash
+git clone https://github.com/seu-usuario/predialfix.git
+cd predialfix
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
