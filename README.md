@@ -1,139 +1,112 @@
-# GestaoPredial-Projetos
-🏢 PredialFix — Sistema de Gestão de Manutenção Predial (Back-End)
-📌 Sobre o Projeto
+🏢 PredialFix — API de Gestão de Manutenção Predial
 
-O PredialFix é uma plataforma de chamados de manutenção predial desenvolvida para atender às demandas do SENAI, que lida diariamente com centenas de solicitações envolvendo:
+Plataforma de chamados para controle e transparência na manutenção predial do SENAI.
 
-Problemas elétricos
+📌 Visão Geral
 
-Manutenção hidráulica
+O PredialFix é uma API RESTful desenvolvida em Laravel para gerenciar solicitações de manutenção predial em instituições como o SENAI.
 
-Reparos estruturais diversos
+O sistema resolve problemas como:
 
-Atualmente, a falta de transparência e o tempo de resposta são os principais problemas enfrentados por alunos e colaboradores.
+❌ Falta de controle de chamados
 
-Este projeto tem como foco o desenvolvimento do Back-End de uma API robusta, segura e escalável, responsável por:
+❌ Demora no atendimento
 
-✅ Organizar os chamados
-✅ Priorizar atendimentos
-✅ Registrar histórico de serviços
-✅ Garantir transparência total do processo
+❌ Ausência de histórico técnico
 
-🎯 Objetivo
+❌ Falta de transparência para usuários
 
-Criar uma API RESTful em Laravel que permita:
+Com o PredialFix é possível acompanhar todo o fluxo de manutenção — da abertura à conclusão.
 
-Abertura de chamados de manutenção
+🎯 Objetivo do Projeto
 
-Atualização de status pelos responsáveis técnicos
+Criar uma infraestrutura Back-End robusta capaz de:
 
-Consulta de histórico por local
+✔ Organizar chamados de manutenção
+✔ Priorizar atendimentos
+✔ Controlar usuários por nível
+✔ Manter histórico por local
+✔ Simular notificações de progresso
 
-Notificações de progresso
-
-Controle de usuários com diferentes permissões
-
-🛠 Tecnologias Utilizadas
+🛠 Tecnologias
 
 PHP 8+
 
-Laravel Framework
+Laravel
 
 MySQL
 
 Eloquent ORM
 
-API RESTful (JSON)
+API REST (JSON)
 
-Laravel Request Validation
+Request Validation
 
-Autenticação (JWT ou Laravel Sanctum)
+Laravel Sanctum/JWT
 
-👥 Tipos de Usuários
-Tipo	Permissões
-👤 Usuário	Abrir chamados, acompanhar status
-🧑‍🔧 Responsável	Atualizar chamados, concluir serviços
+👥 Perfis de Usuário
+Perfil	Ações
+👤 Usuário	Criar chamados e acompanhar status
+🧑‍🔧 Responsável	Gerenciar e atualizar chamados
+🔄 Fluxo de Atendimento
+Aberto → Em Análise → Em Execução → Concluído
 📋 Funcionalidades
-🔐 Gestão de Usuários
+✅ Gestão de Usuários
 
 Cadastro e autenticação
 
-Controle de níveis de acesso
+Controle de permissões
 
-📝 Abertura de Chamados
+✅ Abertura de Chamados
 
-Tipo de problema (Elétrica, Hidráulica, Outros)
+Tipo do problema
 
-Descrição detalhada
+Descrição
 
-Local da ocorrência
+Local
 
-🔄 Workflow de Atendimento
-Aberto → Em Análise → Em Execução → Concluído
-📍 Histórico da Unidade
+✅ Atualização de Status
 
-Consulta de serviços realizados por local ou área comum
+Workflow padronizado
 
-🔔 Notificações (Simuladas)
+✅ Histórico por Local
 
-Técnico a caminho
+Consulta de serviços anteriores
 
-Serviço em execução
+✅ Notificações (simuladas)
 
-Chamado finalizado
+Progresso do chamado
 
-📡 Estrutura da API (Exemplo de Endpoints)
-🔑 Autenticação
-Método	Rota	Descrição
-POST	/api/register	Criar usuário
-POST	/api/login	Login
+📡 Endpoints Principais
+🔐 Autenticação
+Método	Rota	Função
+POST	/api/register	Criar conta
+POST	/api/login	Autenticar
 📝 Chamados
-Método	Rota	Ação
+Método	Rota	Função
 POST	/api/tickets	Abrir chamado
-GET	/api/tickets	Listar chamados
-GET	/api/tickets/{id}	Ver chamado
+GET	/api/tickets	Listar
+GET	/api/tickets/{id}	Detalhar
 PUT	/api/tickets/{id}/status	Atualizar status
-GET	/api/history/{local}	Histórico por local
-🗃 Estrutura do Banco de Dados (Resumo)
+GET	/api/history/{local}	Histórico
+🗃 Banco de Dados (Resumo)
 📁 users
-
-id
-
-name
-
-email
-
-password
-
-role (user/responsavel)
-
+Campo	Tipo
+id	bigint
+name	string
+email	string
+password	string
+role	enum
 📁 tickets
-
-id
-
-type
-
-description
-
-location
-
-status
-
-user_id
-
-created_at
-
-⚙️ Requisitos do Sistema
-
-PHP >= 8.0
-
-Composer
-
-MySQL
-
-Laravel CLI
-
-🚀 Como Executar o Projeto
+Campo	Tipo
+id	bigint
+type	string
+description	text
+location	string
+status	string
+user_id	foreign key
+created_at	timestamp
+⚙️ Como Rodar o Projeto
 git clone https://github.com/seu-usuario/predialfix.git
 cd predialfix
 composer install
@@ -141,40 +114,40 @@ cp .env.example .env
 php artisan key:generate
 php artisan migrate
 php artisan serve
-📄 Boas Práticas Aplicadas
+📄 Padrões Aplicados
 
-✔ API RESTful padronizada
-✔ Validação rigorosa de dados
-✔ Uso de ORM (Eloquent)
-✔ Separação de responsabilidades
-✔ Segurança nas rotas
+API RESTful
+
+MVC Laravel
+
+Validação de dados
+
+ORM Eloquent
+
+Autenticação segura
+
+Código organizado
+
+🚀 Possíveis Evoluções
+
+📸 Upload de imagens do problema
+
+⏱ Sistema de prioridade
+
+📊 Dashboard administrativo
+
+🔔 Notificações em tempo real
+
+📑 Relatórios técnicos
 
 📦 Entrega
 
-O projeto será entregue via:
+✔ Repositório GitHub
+✔ README documentado
+✔ Migrations
+✔ Controllers
+✔ Rotas da API
 
-🔗 Repositório GitHub com:
+🏫 Contexto Acadêmico
 
-Código-fonte completo
-
-README.md documentado
-
-Migrations do banco
-
-Endpoints organizados
-
-📚 Futuras Melhorias
-
-Upload de fotos do problema
-
-Sistema de prioridade automática
-
-Dashboard administrativo
-
-Relatórios mensais
-
-Notificações em tempo real (WebSocket)
-
-🏫 Projeto Acadêmico — SENAI
-
-Sistema desenvolvido como proposta de solução para modernização da gestão de manutenção predial do SENAI.
+Projeto desenvolvido como solução para o controle de manutenção predial do SENAI.
