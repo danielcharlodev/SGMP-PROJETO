@@ -6,6 +6,9 @@
 🔗 **Quadro do Projeto no Trello:**  
 👉 [https://trello.com/b/seu-quadro-gestão-predial](https://trello.com/invite/b/69989460761b3d1ba6397f2c/ATTI2aceaed68ca2775c4167c82ebaed9b821CFCC419/gestao-predial)
 
+🔗 **Quadro do Protótipo no Figma:**  
+👉 [https://figma.com/c/prototipo-SGMP](https://www.figma.com/design/3FoyPfNvDCeqSSYUK8KGlH/Untitled?node-id=0-1&t=gnDPtBob64lpw3yr-1)
+
 ---
 
 ## 📌 Visão Geral
