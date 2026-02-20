@@ -3,6 +3,9 @@
 
 > Plataforma de chamados para **controle, organização e transparência** da manutenção predial.
 
+🔗 **Quadro do Projeto no Trello:**  
+👉 https://trello.com/b/seu-quadro-predialfix
+
 ---
 
 ## 📌 Visão Geral
@@ -54,6 +57,14 @@ Criar um **Back-End robusto e seguro** para:
 ---
 
 ## 🔄 Fluxo de Atendimento
+```text
+📝 Aberto
+   ↓
+🔍 Em Análise
+   ↓
+🛠 Em Execução
+   ↓
+✅ Concluído
 
 
 ---
