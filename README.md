@@ -1,6 +1,6 @@
 🏢 PredialFix — API de Gestão de Manutenção Predial
 
-Plataforma de chamados para controle e transparência na manutenção predial do SENAI.
+Plataforma de chamados para controle, organização e transparência da manutenção predial do SENAI
 
 📌 Visão Geral
 
@@ -8,31 +8,31 @@ O PredialFix é uma API RESTful desenvolvida em Laravel para gerenciar solicita�
 
 O sistema resolve problemas como:
 
-❌ Falta de controle de chamados
+❌ Falta de controle dos chamados
 
 ❌ Demora no atendimento
 
 ❌ Ausência de histórico técnico
 
-❌ Falta de transparência para usuários
+❌ Baixa transparência para usuários
 
-Com o PredialFix é possível acompanhar todo o fluxo de manutenção — da abertura à conclusão.
+Com o PredialFix, cada chamado é acompanhado do início até a resolução.
 
 🎯 Objetivo do Projeto
 
-Criar uma infraestrutura Back-End robusta capaz de:
+Criar um Back-End robusto e seguro capaz de:
 
 ✔ Organizar chamados de manutenção
 ✔ Priorizar atendimentos
-✔ Controlar usuários por nível
+✔ Controlar usuários por nível de acesso
 ✔ Manter histórico por local
 ✔ Simular notificações de progresso
 
-🛠 Tecnologias
+🛠 Tecnologias Utilizadas
 
 PHP 8+
 
-Laravel
+Laravel Framework
 
 MySQL
 
@@ -45,25 +45,27 @@ Request Validation
 Laravel Sanctum/JWT
 
 👥 Perfis de Usuário
-Perfil	Ações
-👤 Usuário	Criar chamados e acompanhar status
-🧑‍🔧 Responsável	Gerenciar e atualizar chamados
+Perfil	Permissões
+👤 Usuário	Abrir chamados e acompanhar status
+🧑‍🔧 Responsável Técnico	Atualizar e concluir chamados
 🔄 Fluxo de Atendimento
 Aberto → Em Análise → Em Execução → Concluído
-📋 Funcionalidades
+📋 Funcionalidades Principais
 ✅ Gestão de Usuários
 
-Cadastro e autenticação
+Cadastro
+
+Login
 
 Controle de permissões
 
 ✅ Abertura de Chamados
 
-Tipo do problema
+Tipo do problema (Elétrica, Hidráulica, Outros)
 
-Descrição
+Descrição detalhada
 
-Local
+Local da ocorrência
 
 ✅ Atualização de Status
 
@@ -77,19 +79,19 @@ Consulta de serviços anteriores
 
 Progresso do chamado
 
-📡 Endpoints Principais
+📡 Endpoints Essenciais
 🔐 Autenticação
 Método	Rota	Função
-POST	/api/register	Criar conta
+POST	/api/register	Criar usuário
 POST	/api/login	Autenticar
 📝 Chamados
 Método	Rota	Função
 POST	/api/tickets	Abrir chamado
-GET	/api/tickets	Listar
+GET	/api/tickets	Listar chamados
 GET	/api/tickets/{id}	Detalhar
 PUT	/api/tickets/{id}/status	Atualizar status
 GET	/api/history/{local}	Histórico
-🗃 Banco de Dados (Resumo)
+🗃 Estrutura do Banco de Dados (Resumo)
 📁 users
 Campo	Tipo
 id	bigint
@@ -106,7 +108,7 @@ location	string
 status	string
 user_id	foreign key
 created_at	timestamp
-⚙️ Como Rodar o Projeto
+⚙️ Como Executar o Projeto
 git clone https://github.com/seu-usuario/predialfix.git
 cd predialfix
 composer install
@@ -114,25 +116,25 @@ cp .env.example .env
 php artisan key:generate
 php artisan migrate
 php artisan serve
-📄 Padrões Aplicados
+📄 Boas Práticas Aplicadas
 
-API RESTful
+✅ Arquitetura MVC
 
-MVC Laravel
+✅ API RESTful
 
-Validação de dados
+✅ Validação rigorosa
 
-ORM Eloquent
+✅ ORM Eloquent
 
-Autenticação segura
+✅ Autenticação segura
 
-Código organizado
+✅ Código organizado
 
-🚀 Possíveis Evoluções
+🚀 Possíveis Evoluções Futuras
 
-📸 Upload de imagens do problema
+📸 Upload de fotos dos problemas
 
-⏱ Sistema de prioridade
+⏱ Sistema de prioridade automática
 
 📊 Dashboard administrativo
 
@@ -140,14 +142,13 @@ Código organizado
 
 📑 Relatórios técnicos
 
-📦 Entrega
+📦 Entrega do Projeto
 
 ✔ Repositório GitHub
 ✔ README documentado
-✔ Migrations
-✔ Controllers
-✔ Rotas da API
+✔ Banco estruturado
+✔ Endpoints funcionais
 
 🏫 Contexto Acadêmico
 
-Projeto desenvolvido como solução para o controle de manutenção predial do SENAI.
+Projeto desenvolvido como solução tecnológica para a gestão de manutenção predial do SENAI.
