@@ -4,7 +4,7 @@
 > Plataforma de chamados para **controle, organização e transparência** da manutenção predial.
 
 🔗 **Quadro do Projeto no Trello:**  
-👉 [https://trello.com/b/seu-quadro-predialfix](https://trello.com/invite/b/69989460761b3d1ba6397f2c/ATTI2aceaed68ca2775c4167c82ebaed9b821CFCC419/gestao-predial)
+👉 [https://trello.com/b/seu-quadro-gestão-predial](https://trello.com/invite/b/69989460761b3d1ba6397f2c/ATTI2aceaed68ca2775c4167c82ebaed9b821CFCC419/gestao-predial)
 
 ---
 
