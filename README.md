@@ -4,9 +4,9 @@ Plataforma de chamados para controle, organização e transparência da manuten�
 
 📌 Visão Geral
 
-O PredialFix é uma API RESTful desenvolvida em Laravel para gerenciar solicitações de manutenção predial em instituições como o SENAI.
+O PredialFix é uma API RESTful desenvolvida em Laravel para gerenciar solicitações de manutenção predial.
 
-O sistema resolve problemas como:
+O sistema resolve:
 
 ❌ Falta de controle dos chamados
 
@@ -14,25 +14,29 @@ O sistema resolve problemas como:
 
 ❌ Ausência de histórico técnico
 
-❌ Baixa transparência para usuários
+❌ Pouca transparência para usuários
 
-Com o PredialFix, cada chamado é acompanhado do início até a resolução.
+Cada chamado pode ser acompanhado do início até a conclusão.
 
 🎯 Objetivo do Projeto
 
-Criar um Back-End robusto e seguro capaz de:
+Criar um Back-End robusto e seguro para:
 
-✔ Organizar chamados de manutenção
-✔ Priorizar atendimentos
-✔ Controlar usuários por nível de acesso
-✔ Manter histórico por local
-✔ Simular notificações de progresso
+✅ Organizar chamados de manutenção
+
+✅ Priorizar atendimentos
+
+✅ Controlar usuários por nível
+
+✅ Manter histórico por local
+
+✅ Simular notificações de progresso
 
 🛠 Tecnologias Utilizadas
 
 PHP 8+
 
-Laravel Framework
+Laravel
 
 MySQL
 
@@ -46,60 +50,58 @@ Laravel Sanctum/JWT
 
 👥 Perfis de Usuário
 Perfil	Permissões
-👤 Usuário	Abrir chamados e acompanhar status
-🧑‍🔧 Responsável Técnico	Atualizar e concluir chamados
+Usuário	Abrir chamados e acompanhar status
+Responsável Técnico	Atualizar e concluir chamados
 🔄 Fluxo de Atendimento
 Aberto → Em Análise → Em Execução → Concluído
-📋 Funcionalidades Principais
-✅ Gestão de Usuários
+📋 Funcionalidades
+Gestão de Usuários
 
-Cadastro
-
-Login
+Cadastro e login
 
 Controle de permissões
 
-✅ Abertura de Chamados
+Abertura de Chamados
 
-Tipo do problema (Elétrica, Hidráulica, Outros)
+Tipo (Elétrica, Hidráulica, Outros)
 
-Descrição detalhada
+Descrição
 
-Local da ocorrência
+Local
 
-✅ Atualização de Status
+Atualização de Status
 
 Workflow padronizado
 
-✅ Histórico por Local
+Histórico por Local
 
 Consulta de serviços anteriores
 
-✅ Notificações (simuladas)
+Notificações
 
-Progresso do chamado
+Progresso do chamado (simulado)
 
-📡 Endpoints Essenciais
-🔐 Autenticação
+📡 Principais Endpoints
+Autenticação
 Método	Rota	Função
 POST	/api/register	Criar usuário
-POST	/api/login	Autenticar
-📝 Chamados
+POST	/api/login	Login
+Chamados
 Método	Rota	Função
 POST	/api/tickets	Abrir chamado
-GET	/api/tickets	Listar chamados
+GET	/api/tickets	Listar
 GET	/api/tickets/{id}	Detalhar
 PUT	/api/tickets/{id}/status	Atualizar status
 GET	/api/history/{local}	Histórico
-🗃 Estrutura do Banco de Dados (Resumo)
-📁 users
+🗃 Banco de Dados (Resumo)
+users
 Campo	Tipo
 id	bigint
 name	string
 email	string
 password	string
 role	enum
-📁 tickets
+tickets
 Campo	Tipo
 id	bigint
 type	string
@@ -108,7 +110,7 @@ location	string
 status	string
 user_id	foreign key
 created_at	timestamp
-⚙️ Como Executar o Projeto
+⚙️ Como Executar
 git clone https://github.com/seu-usuario/predialfix.git
 cd predialfix
 composer install
@@ -116,39 +118,40 @@ cp .env.example .env
 php artisan key:generate
 php artisan migrate
 php artisan serve
-📄 Boas Práticas Aplicadas
+📄 Boas Práticas
 
-✅ Arquitetura MVC
+API RESTful
 
-✅ API RESTful
+Arquitetura MVC
 
-✅ Validação rigorosa
+Validação de dados
 
-✅ ORM Eloquent
+ORM Eloquent
 
-✅ Autenticação segura
+Autenticação segura
 
-✅ Código organizado
+🚀 Evoluções Futuras
 
-🚀 Possíveis Evoluções Futuras
+Upload de imagens
 
-📸 Upload de fotos dos problemas
+Sistema de prioridade
 
-⏱ Sistema de prioridade automática
+Dashboard administrativo
 
-📊 Dashboard administrativo
+Notificações em tempo real
 
-🔔 Notificações em tempo real
+Relatórios técnicos
 
-📑 Relatórios técnicos
+📦 Entrega
 
-📦 Entrega do Projeto
+Repositório GitHub
 
-✔ Repositório GitHub
-✔ README documentado
-✔ Banco estruturado
-✔ Endpoints funcionais
+README documentado
 
-🏫 Contexto Acadêmico
+Banco estruturado
 
-Projeto desenvolvido como solução tecnológica para a gestão de manutenção predial do SENAI.
+API funcional
+
+🏫 Projeto Acadêmico — SENAI
+
+Sistema desenvolvido para modernizar a gestão de manutenção predial.
