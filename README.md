@@ -1,153 +1,70 @@
-# 🏢 Gestão Predial 
-### API de Gestão de Manutenção Predial — SENAI
+# PredialFix
+API REST para Gestão de Manutenção Predial
 
-> Plataforma de chamados para **controle, organização e transparência** da manutenção predial.
-
-🔗 **Quadro do Projeto no Trello:**  
-👉 [https://trello.com/b/seu-quadro-gestão-predial](https://trello.com/invite/b/69989460761b3d1ba6397f2c/ATTIc596743f04c7183474112b93b1db0171472E8024/gestao-predial)
-
-🔗 **Quadro do Protótipo no Figma:**  
-👉 [https://figma.com/c/prototipo-SGMP](https://www.figma.com/design/3FoyPfNvDCeqSSYUK8KGlH/Untitled?node-id=0-1&t=gnDPtBob64lpw3yr-1)
+Projeto acadêmico desenvolvido no **SENAI** com o objetivo de criar um sistema para gerenciamento de chamados de manutenção predial.
 
 ---
 
-## 📌 Visão Geral
+# 🔗 Links do Projeto
 
-O **PredialFix** é uma **API RESTful desenvolvida em Laravel** para gerenciar solicitações de manutenção predial de forma eficiente.
+📋 **Gestão do Projeto (Trello)**  
+https://trello.com/b/seu-quadro-gestão-predial
 
-### 🚫 Problemas resolvidos pelo sistema:
-
-- ❌ Falta de controle dos chamados  
-- ❌ Demora no atendimento  
-- ❌ Ausência de histórico técnico  
-- ❌ Pouca transparência para usuários  
-
-✅ Cada chamado pode ser acompanhado **do início até a conclusão**.
+🎨 **Protótipo da Interface (Figma)**  
+https://figma.com/c/prototipo-SGMP
 
 ---
 
-## 🎯 Objetivo do Projeto
+# 📌 Visão Geral
 
-Criar um **Back-End robusto e seguro** para:
+O **PredialFix** é uma **API REST desenvolvida em Laravel** para gerenciar solicitações de manutenção predial de forma organizada e eficiente.
 
-- ✔ Organizar chamados de manutenção  
-- ✔ Priorizar atendimentos  
-- ✔ Controlar usuários por nível de acesso  
-- ✔ Manter histórico por local  
-- ✔ Simular notificações de progresso  
+O sistema permite que usuários registrem problemas estruturais ou técnicos dentro de um prédio e acompanhem o andamento do atendimento até sua conclusão.
+
+A API mantém controle de chamados, histórico de intervenções e atualização de status durante todo o processo.
 
 ---
 
-## 🛠 Tecnologias Utilizadas
+# 🎯 Objetivo do Projeto
 
-- **PHP 8+**  
-- **Laravel Framework**  
-- **MySQL**  
-- **Eloquent ORM**  
-- **API REST (JSON)**  
-- **Request Validation**  
-- **Laravel Sanctum / JWT**
+Desenvolver um **Back-End robusto e estruturado** capaz de:
+
+- Gerenciar chamados de manutenção
+- Priorizar atendimentos
+- Controlar níveis de acesso de usuários
+- Manter histórico de serviços por local
+- Simular notificações de progresso do atendimento
 
 ---
 
-## 👥 Perfis de Usuário
+# 🛠 Tecnologias Utilizadas
+
+- PHP 8+
+- Laravel Framework
+- MySQL
+- Eloquent ORM
+- REST API (JSON)
+- Request Validation
+- Laravel Sanctum / JWT
+
+---
+
+# 👥 Perfis de Usuário
 
 | Perfil | Permissões |
-|-------|-----------|
-| **Usuário** | Abrir chamados e acompanhar status |
-| **Responsável Técnico** | Atualizar e concluir chamados |
+|------|------|
+| Usuário | Abrir chamados e acompanhar status |
+| Responsável Técnico | Atualizar status e concluir chamados |
 
 ---
 
-## 🔄 Fluxo de Atendimento
+# 🔄 Fluxo de Atendimento
+
 ```text
-📝 Aberto
-   ↓
-🔍 Em Análise
-   ↓
-🛠 Em Execução
-   ↓
-✅ Concluído
-
-
----
-
-## 📋 Funcionalidades
-
-### 👤 Gestão de Usuários
-- Cadastro e login  
-- Controle de permissões  
-
-### 🧾 Abertura de Chamados
-- Tipo (Elétrica, Hidráulica, Outros)  
-- Descrição do problema  
-- Local da ocorrência  
-
-### 🔁 Atualização de Status
-- Workflow padronizado  
-
-### 📍 Histórico por Local
-- Consulta de serviços anteriores  
-
-### 🔔 Notificações
-- Progresso do chamado (simulado)
-
----
-
-## 📡 Principais Endpoints
-
-### 🔐 Autenticação
-
-| Método | Rota | Função |
-|-------|------|-------|
-| POST | `/api/register` | Criar usuário |
-| POST | `/api/login` | Login |
-
-### 🧾 Chamados
-
-| Método | Rota | Função |
-|-------|------|-------|
-| POST | `/api/tickets` | Abrir chamado |
-| GET | `/api/tickets` | Listar chamados |
-| GET | `/api/tickets/{id}` | Detalhar chamado |
-| PUT | `/api/tickets/{id}/status` | Atualizar status |
-| GET | `/api/history/{local}` | Histórico por local |
-
----
-
-## 🗃 Banco de Dados (Resumo)
-
-### 📌 users
-
-| Campo | Tipo |
-|------|-----|
-| id | bigint |
-| name | string |
-| email | string |
-| password | string |
-| role | enum |
-
-### 📌 tickets
-
-| Campo | Tipo |
-|------|-----|
-| id | bigint |
-| type | string |
-| description | text |
-| location | string |
-| status | string |
-| user_id | foreign key |
-| created_at | timestamp |
-
----
-
-## ⚙️ Como Executar o Projeto
-
-```bash
-git clone https://github.com/seu-usuario/predialfix.git
-cd predialfix
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan serve
+Aberto
+  ↓
+Em Análise
+  ↓
+Em Execução
+  ↓
+Concluído
