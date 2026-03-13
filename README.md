@@ -55,16 +55,3 @@ Desenvolver um **Back-End robusto e estruturado** capaz de:
 |------|------|
 | Usuário | Abrir chamados e acompanhar status |
 | Responsável Técnico | Atualizar status e concluir chamados |
-
----
-
-# 🔄 Fluxo de Atendimento
-
-```text
-Aberto
-  ↓
-Em Análise
-  ↓
-Em Execução
-  ↓
-Concluído
