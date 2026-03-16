@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/Login/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,8 +21,8 @@
       <img id="logo" src="Imagens/senai.png" />
       <p class="mulish">Sistema de gestão <br />de manutenção predial</p>
       <div class="btns-nav">
-        <button class="btn-nav mulish" id="btn-nav1">Entrar</button>
-        <button class="btn-nav mulish" id="btn-nav2">Cadastrar</button>
+        <a href="/login" class="btn-nav mulish" id="btn-nav1">Entrar</a>
+        <a href="/criar" class="btn-nav mulish" id="btn-nav2">Cadastrar</a>
       </div>
     </div>
     <div id="separacoes2">
@@ -31,7 +31,7 @@
           <p class="mulish">Acesse sua conta:</p>
         </div>
         <form class="form-login">
-          <label class="mulish oculto" for="email-lgn" id="label-email-lgn"
+          <label class="mulish" for="email-lgn" id="label-email-lgn"
             >E-mail:</label
           >
           <input
@@ -41,7 +41,7 @@
             class="input-lgn mulish"
             placeholder="Digite seu e-mail"
           />
-          <label class="mulish oculto" for="senha-lgn" id="label-senha-lgn"
+          <label class="mulish" for="senha-lgn" id="label-senha-lgn"
             >Senha:</label
           >
           <input
@@ -55,7 +55,7 @@
             Conectar-se
           </button>
           <div id="extras-lgn">
-            <a id="cadastrar-a-lgn" href="cadastrar.html"
+            <a id="cadastrar-a-lgn" href="/cadastro"
               >Não possui uma conta?</a
             >
             <a id="esqueceu-a-lgn" href="esqueceu.html">Esqueceu sua senha?</a>
@@ -67,6 +67,6 @@
       <p class="mulish">&copy;Todos os direitos reservados ao grupo 5</p>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>

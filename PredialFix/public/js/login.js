@@ -16,19 +16,15 @@ email_lgn.addEventListener("blur",()=>mostrarlabel('email'));
 function mostrarlabel(campo){
     if(campo=='senha' && senha==false){
         senha=true;
-        label_senha_lgn.classList.remove("oculto");
         senha_lgn.placeholder="";
     }else if(campo=='senha' && senha==true){
         senha=false;
-        label_senha_lgn.classList.add("oculto");
         senha_lgn.placeholder="Digite sua senha";
     }else if(campo=="email" && email==false){
         email=true;
-        label_email_lgn.classList.remove("oculto");
         email_lgn.placeholder="";
     }else{
         email=false;
-        label_email_lgn.classList.add("oculto");
         email_lgn.placeholder="Digite seu e-mail"
     }
 }

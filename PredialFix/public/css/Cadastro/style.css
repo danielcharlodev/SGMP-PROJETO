@@ -1,0 +1,152 @@
+body,html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body{
+    display: grid;
+    grid-template-rows: 15% 1fr 4%;
+}
+
+#separacoes1{
+    grid-row: 1/2;
+    background-color: rgb(255, 255, 255);
+
+    display: flex;
+    align-items: center;
+    padding: 1%;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#separacoes1 p{
+    font-size: x-large;
+    margin-right: -3
+}
+
+#separacoes1 img{
+    width: 20%;
+    height: auto;
+}
+
+#separacoes1::after{
+    content: "";
+    width: 100%;
+    left: 0px;
+    position: absolute;
+    top: 15%;
+    height: 0.3%;
+    background-color: rgba(255, 0, 0, 0.6);
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.btn-nav{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    font-weight: 300 !important;
+    border-radius: 7px;
+    padding: 0.8%;
+    border: 0;
+}
+
+.btn-nav:hover{
+    cursor: pointer;
+}
+
+.btns-nav{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    width: 22%;
+    height: 90%;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: rgb(255, 255, 255);
+    transition: 2s ease;
+}
+
+#btn-nav1{
+    width: 40%;
+    height: 63%;
+    background-color: white;
+    color: red;
+    box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+#btn-nav2{
+    width: 45%;
+    height: 75%;
+    background-color: red;
+    color: white;
+    box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+#btn-nav2:hover{
+    transform: scale(1.02);
+    transition: ease 1s;
+    background-color: white;
+    color: red;
+}
+
+#btn-nav1:hover{
+    transform: scale(1.05);
+    transition: ease 1s;
+    background-color: red;
+    color: white;
+}
+
+#separacoes2{
+    grid-row: 2/3;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    background: url("../../Imagens/fundo.png");
+    background-size: cover;
+    background-position:center;
+    background-size: 100%;
+    align-items: center;
+    display: flex;
+}
+
+#logo:hover{
+    transform: rotate(360deg);
+    transition: 2s ease;
+}
+
+#separacoes3{
+    grid-row: 3;
+    background-color: rgba(253, 255, 254, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#separacoes3::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.3%;
+    background-color: rgba(255, 0, 0, 0.6);
+    bottom: 4%;
+}
+
+.ios {
+  font-family: "Iosevka Charon Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.mulish{
+  font-family: "Mulish", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}

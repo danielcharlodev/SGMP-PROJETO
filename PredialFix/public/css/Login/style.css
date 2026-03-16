@@ -52,8 +52,12 @@ body{
     font-size: x-large;
     font-weight: 300 !important;
     border-radius: 7px;
-    padding: 2%;
+    padding: 0.8%;
     border: 0;
+}
+
+.btn-nav:hover{
+    cursor: pointer;
 }
 
 .btns-nav{
@@ -74,6 +78,7 @@ body{
     background-color: white;
     color: red;
     box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
 }
 
 #btn-nav2{
@@ -82,6 +87,7 @@ body{
     background-color: red;
     color: white;
     box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
 }
 
 #btn-nav2:hover{
@@ -102,7 +108,7 @@ body{
     grid-row: 2/3;
     background-color: rgb(255, 255, 255);
     justify-content: center;
-    background: url("Imagens/fundo.png");
+    background: url("../../Imagens/fundo.png");
     background-size: cover;
     background-position:center;
     background-size: 100%;
@@ -165,6 +171,11 @@ body{
     border: 0;
     box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
     transition: ease 2s;
+}
+
+.input-lgn:focus{
+    outline: 2px solid red;
+    transition: ease 0s !important;
 }
 
 .texto-login{
@@ -293,3 +304,8 @@ input::placeholder{
   font-weight: normal;
   font-style: normal;
 }
+
+/* body:hover{
+    transform: rotate(1080deg);
+    transition: ease 2s;
+} */
