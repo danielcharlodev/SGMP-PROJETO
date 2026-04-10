@@ -11,7 +11,7 @@ Projeto acadêmico desenvolvido no **SENAI** com o objetivo de criar um sistema 
 [Acesse aqui a gestão do projeto](https://trello.com/invite/b/69989460761b3d1ba6397f2c/ATTI46484762b01602bf2e71265847dc3ead23EB025A/gestao-predial)
 
 🎨 **Protótipo da Interface (Figma)**  
-[Acesse aqui o Protótipo](https://www.figma.com/design/5SXHtrPThycpa8UfdCxUoh/Sem-t%C3%ADtulo?node-id=0-1&t=xLsFH70jkgBCDHlQ-1)
+[Acesse aqui o Protótipo](https://www.figma.com/design/5SXHtrPThycpa8UfdCxUoh/Manuten%C3%A7%C3%A3o-Predial?node-id=0-1&t=4973fmxdK3eN6QtH-1)
 
 ---
 
