@@ -49,6 +49,43 @@ Desenvolver um **Back-End robusto e estruturado** capaz de:
 
 ---
 
+# ⚙️ Etapas do Desenvolvimento
+
+## 🔹 Levantamento de Requisitos
+Definição das funcionalidades do sistema, como abertura de chamados, controle de usuários, acompanhamento de status e histórico de manutenções.
+
+---
+
+## 🔹 Prototipagem
+Criação das telas do sistema, permitindo visualizar o fluxo de uso, como abertura e acompanhamento de chamados.
+
+---
+
+## 🔹 Metodologias Ágeis
+Organização do desenvolvimento em etapas, facilitando o controle das tarefas e evolução do sistema.
+
+---
+
+## 🔹 Versionamento
+Controle das alterações no código, registrando melhorias, correções e novas funcionalidades.
+
+---
+
+## 🔹 Documentação
+Registro das informações do sistema, incluindo funcionamento, regras e estrutura da API.
+
+---
+
+## 🔹 Diagramas (Classe e Sequência)
+Representação da estrutura do sistema e do fluxo de funcionamento dos chamados.
+
+---
+
+## 🔹 Diagrama de Banco de Dados
+Definição das tabelas e relacionamentos para organização dos dados do sistema.
+
+---
+
 # 👥 Perfis de Usuário
 
 | Perfil | Permissões |
