@@ -52,51 +52,51 @@ Desenvolver um **Back-End robusto e estruturado** capaz de:
 # ⚙️ Etapas do Desenvolvimento
 
 ## 🔹 Levantamento de Requisitos
-No sistema PredialFix, o levantamento de requisitos foi essencial para definir as funcionalidades necessárias para o gerenciamento de manutenção predial.
-
-Foram identificadas necessidades como abertura de chamados, acompanhamento de status, controle de usuários e registro de histórico de manutenções. Esses requisitos garantem que o sistema atenda tanto os solicitantes quanto os responsáveis técnicos.
+- Definição das funcionalidades do sistema de manutenção predial  
+- Identificação de necessidades como abertura de chamados e controle de usuários  
+- Organização do acompanhamento de status e histórico de manutenções  
 
 ---
 
 ## 🔹 Prototipagem
-A prototipagem foi utilizada para representar visualmente as telas do sistema, como login, abertura de chamados e acompanhamento de ordens de serviço.
-
-Essa etapa permitiu organizar a navegação e garantir uma interface simples e intuitiva para os usuários.
+- Criação das telas do sistema (login, chamados, acompanhamento)  
+- Planejamento da navegação do usuário  
+- Foco em interface simples e intuitiva  
 
 ---
 
 ## 🔹 Metodologias Ágeis
-A utilização de metodologias ágeis permitiu organizar o desenvolvimento do sistema de forma contínua e eficiente.
-
-As atividades foram divididas em etapas, facilitando o acompanhamento do progresso e a priorização das tarefas.
+- Organização do desenvolvimento em etapas  
+- Controle e acompanhamento das tarefas  
+- Priorização das demandas do sistema  
 
 ---
 
 ## 🔹 Versionamento
-O versionamento foi utilizado para registrar todas as alterações realizadas no sistema, como criação de funcionalidades, correções e melhorias.
-
-Isso garante maior controle do desenvolvimento e segurança no código.
+- Registro das alterações no código  
+- Controle de melhorias e correções  
+- Organização do histórico do projeto  
 
 ---
 
 ## 🔹 Documentação
-A documentação foi responsável por descrever o funcionamento do sistema, incluindo requisitos, regras de negócio e estrutura da API.
-
-Ela facilita o entendimento e a manutenção do projeto.
+- Registro do funcionamento do sistema  
+- Descrição de requisitos e regras de negócio  
+- Estruturação da API  
 
 ---
 
 ## 🔹 Diagramas (Classe e Sequência)
-Os diagramas foram utilizados para representar a estrutura e o funcionamento do sistema.
-
-O diagrama de classes mostra as entidades e seus relacionamentos, enquanto o diagrama de sequência representa o fluxo dos chamados.
+- Representação da estrutura do sistema  
+- Modelagem das entidades e relacionamentos  
+- Demonstração do fluxo dos chamados  
 
 ---
 
 ## 🔹 Diagrama de Banco de Dados
-O diagrama de banco de dados define a estrutura de armazenamento das informações do sistema, como usuários, chamados, técnicos e equipamentos.
-
-Ele garante a organização dos dados e a correta relação entre as entidades.
+- Definição das tabelas do sistema  
+- Organização dos dados (usuários, chamados, técnicos)  
+- Relacionamento entre as entidades  
 
 ---
 
