@@ -8,7 +8,7 @@ Projeto acadêmico desenvolvido no **SENAI** com o objetivo de criar um sistema 
 # 🔗 Links Importantes
 
 📋 **Gestão do Projeto (Trello)**  
-https://trello.com/b/seu-quadro-gestão-predial
+[Acesse aqui a gestão do projeto](https://trello.com/invite/b/69989460761b3d1ba6397f2c/ATTI46484762b01602bf2e71265847dc3ead23EB025A/gestao-predial)
 
 🎨 **Protótipo da Interface (Figma)**  
 [Acesse aqui o Protótipo](https://www.figma.com/design/3FoyPfNvDCeqSSYUK8KGlH/Untitled?node-id=1-2&t=BoubgvouwE9M3jND-1)
