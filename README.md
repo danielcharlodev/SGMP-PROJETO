@@ -5,13 +5,13 @@ Projeto acadêmico desenvolvido no **SENAI** com o objetivo de criar um sistema 
 
 ---
 
-# 🔗 Links do Projeto
+# 🔗 Links Importantes
 
 📋 **Gestão do Projeto (Trello)**  
 https://trello.com/b/seu-quadro-gestão-predial
 
 🎨 **Protótipo da Interface (Figma)**  
-https://figma.com/c/prototipo-SGMP
+[Clique Aqui para acessar o protótipo!](https://www.figma.com/design/3FoyPfNvDCeqSSYUK8KGlH/Untitled?node-id=1-2&t=BoubgvouwE9M3jND-1)
 
 ---
 
