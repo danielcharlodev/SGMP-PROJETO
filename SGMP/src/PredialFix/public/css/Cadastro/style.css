@@ -67,7 +67,7 @@ body{
     width: 22%;
     height: 90%;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     background-color: rgb(255, 255, 255);
     transition: 2s ease;
 }
@@ -104,6 +104,11 @@ body{
     color: white;
 }
 
+#logo:hover{
+    transform: rotate(360deg);
+    transition: 2s ease;
+}
+
 #separacoes2{
     grid-row: 2/3;
     background-color: rgb(255, 255, 255);
@@ -114,12 +119,130 @@ body{
     background-size: 100%;
     align-items: center;
     display: flex;
+    height: 100%;
+    margin-bottom: 0px;
 }
 
-#logo:hover{
-    transform: rotate(360deg);
-    transition: 2s ease;
+.cadastro{
+    padding-top: 2%;
+    gap: 10%;
+    display: flex;
+    height: 88%;
+    z-index: 2;
+    width: 30%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    align-items: center;
 }
+
+.cadastro form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 70%;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    padding-left: 10%;
+}
+
+.cadastro form button{
+    margin-top: 10%;
+    width: 50%;
+    min-height: 50px;
+    height: 10%;
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+    justify-self: center;
+    background-color: red;
+    color: white;
+    align-self: center;
+    border-radius: 10px;
+    border: 0;
+    margin-right: 15%;
+    margin-bottom: 4%;
+}
+
+.cadastro form button:hover{
+    transform: scale(1.02);
+    background-color: white;
+    color: red;
+    transition: ease 0.6s;
+}
+
+.input-cdt{
+    margin-bottom: 5px;
+    width: 85%;
+    min-height: 30px;
+    height: 14%;
+    border-radius: 2px;
+    border: 0;
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+    transition: ease 2s;
+}
+
+.input-cdt:focus{
+    outline: 2px solid red;
+    transition: ease 0s !important;
+}
+
+.texto-cadastro{
+    font-size: x-large;
+    margin-bottom: 10px;
+}
+
+.texto-cadastro{
+    display: flex;
+    height: 10%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.texto-cadastro::after{
+    content: "";
+    width: 24%;
+    left: 38%;
+    position: absolute;
+    top: 27%;
+    height: 0.2%;
+    background-color: rgba(255, 0, 0, 0.6);
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+#extras-cdt{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    margin-right: 15% !important;
+    gap: 10%;
+}
+
+
+#extras-cdt a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+#extras-cdt a:hover{
+    color: red;
+    text-decoration: underline;
+    transition: ease 0.5s;
+}
+
+
+
+
+
+ /* ======================  */
+ /* ======================  */
+ /* ======================  */
 
 #separacoes3{
     grid-row: 3;

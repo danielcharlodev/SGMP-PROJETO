@@ -22,7 +22,7 @@
       <p class="mulish">Sistema de gestão <br />de manutenção predial</p>
       <div class="btns-nav">
         <a href="/login" class="btn-nav mulish" id="btn-nav1">Entrar</a>
-        <a href="/criar" class="btn-nav mulish" id="btn-nav2">Cadastrar</a>
+        <a href="/cadastro" class="btn-nav mulish" id="btn-nav2">Cadastrar</a>
       </div>
     </div>
     <div id="separacoes2">
