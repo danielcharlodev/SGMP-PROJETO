@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use app\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('Login.index');
@@ -17,3 +18,5 @@ Route::get('/login',function(){
 Route::get('/dashboard',function(){
     return view('Dashboard.index');
 });
+
+Route::post('/cadastro',[AuthController::class, 'cadastrar']);

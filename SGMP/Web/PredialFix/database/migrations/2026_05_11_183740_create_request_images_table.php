@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('requests', function (Blueprint $table) {
+        Schema::create('request_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('solicitante_id')->constrained('users');
-            $table->foreignId('responsavel_id')->nullable()->constrained('users');
-            $table->string('titulo');
-            $table->text('descricao');
-            $table->string('tag')->nullable();
+            $table->foreignId('request_id')->constrained()->cascadeOnDelete();
+            $table->string('caminho');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('requests');
+        Schema::dropIfExists('request_images');
     }
 };

@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('budgets', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->integer('quantidade');
-            $table->decimal('valor_total', 8, 2);
-            $table->string('descricao');
+            $table->text('descricao')->nullable();
+            $table->decimal('valor_total', 10, 2)->nullable();
             $table->timestamps();
         });
     }
