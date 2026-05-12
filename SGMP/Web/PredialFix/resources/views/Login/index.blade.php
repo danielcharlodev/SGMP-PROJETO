@@ -66,7 +66,7 @@
     <p class="mulish">&copy;Todos os direitos reservados ao grupo 5</p>
   </div>
 
-  <script src="js/login.js"></script>
+  <script src="js/Login/login.js"></script>
 </body>
 
 </html>
