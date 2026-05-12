@@ -247,7 +247,11 @@ body{
     transition: 2s ease;
 } */
 
-
+.error-msg{
+    color: red;
+    font-size: larger;
+    justify-self: center;;
+}
 
 
 

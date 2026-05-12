@@ -236,7 +236,11 @@ body{
     transition: ease 0.5s;
 }
 
-
+.error-msg{
+    color: red;
+    font-size: larger;
+    justify-self: center;;
+}
 
 
 

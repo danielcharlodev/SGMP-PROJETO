@@ -30,7 +30,7 @@
       <div class="texto-cadastro">
         <p class="mulish">Crie sua conta:</p>
       </div>
-      <form class="form-cadastro" method="POST" action="/registrar">
+      <form class="form-cadastro" method="POST" action="/cadastro">
         @csrf
         <label class="mulish" for="email-cdt" class="label-email-cdt">Nome Completo:</label>
         <input
@@ -40,7 +40,7 @@
           class="input-cdt mulish"
           placeholder="Digite seu nome" />
         @error('name')
-        <span>{{ $message }}</span>
+        <span class="error-msg mulish">{{ $message }}</span>
         @enderror
         <label class="mulish" for="email-cdt" class="label-email-cdt">CPF:</label>
         <input
@@ -50,7 +50,7 @@
           class="input-cdt mulish"
           placeholder="Digite seu CPF" />
         @error('cpf')
-        <span>{{ $message }}</span>
+        <span class="error-msg mulish">{{ $message }}</span>
         @enderror
         <label class="mulish" for="email-cdt" class="label-email-cdt">E-mail:</label>
         <input
@@ -60,7 +60,7 @@
           class="input-cdt mulish"
           placeholder="Digite seu e-mail" />
         @error('email')
-        <span>{{ $message }}</span>
+        <span class="error-msg mulish">{{ $message }}</span>
         @enderror
         <label class="mulish" for="telefone-cdt" class="label-telefone-cdt">Telefone:</label>
         <input
@@ -70,7 +70,7 @@
           class="input-cdt mulish"
           placeholder="Digite seu telefone" />
         @error('telefone')
-        <span>{{ $message }}</span>
+        <span class="error-msg mulish">{{ $message }}</span>
         @enderror
         <label class="mulish" for="endereco-cdt" class="label-endereco-cdt">Endereço:</label>
         <input
@@ -80,7 +80,7 @@
           class="input-cdt mulish"
           placeholder="Digite seu endereço" />
         @error('endereco')
-        <span>{{ $message }}</span>
+        <span class="error-msg mulish">{{ $message }}</span>
         @enderror
         <label class="mulish" for="senha-cdt" class="label-senha-cdt">Senha:</label>
         <input
@@ -90,10 +90,9 @@
           class="input-cdt mulish"
           placeholder="Digite sua senha" />
         @error('password')
-        <span>{{ $message }}</span>
+        <span class="error-msg mulish">{{ $message }}</span>
         @enderror
 
-        <!-- ainda tem q mudar aqui -->
         <label class="mulish" for="senha-cdt" class="label-senha-cdt">Confirmar senha:</label>
         <input
           type="password"
@@ -102,7 +101,7 @@
           class="input-cdt mulish"
           placeholder="Digite sua senha" />
         @error('password_confirmation')
-        <span>{{ $message }}</span>
+        <span class="error-msg mulish">{{ $message }}</span>
         @enderror
 
 
