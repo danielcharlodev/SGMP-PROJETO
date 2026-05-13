@@ -4,124 +4,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel Administrativo</title>
+
     <link rel="stylesheet" href="css/dashboard/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <title>Exemplo</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
-    <div class="container">
 
-        <div class="sidebar">
 
-            <div class="icon-sidebar">
-                <img src="Imagens/senai.png" alt="Logo do Senai">
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar__top">
+                <div class="sidebar__logo">
+                    <img src="Imagens/senai.png" alt="Logo do Senai">
+                </div>
+                <nav class="sidebar__nav">
+                    <button class="sidebar__button" onclick="trocarSecao('painel')">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Home</span>
+                    </button>
+                    <button class="sidebar__button" onclick="trocarSecao('novo-chamado')">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Novo Chamado</span>
+                    </button>
+                </nav>
             </div>
-
-            <div class="sidebar-links">
-
-                <button class="sidebar-btn" onclick="trocarSecao('painel')">
-                    <i class="fa-solid fa-house"></i>
-                    <p>Home</p>
+            <div class="sidebar__bottom">
+                <button class="sidebar__button " onclick="trocarSecao('perfil')">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span>Perfil</span>
                 </button>
-
-                <br>
-
-                <button class="sidebar-btn" onclick="trocarSecao('novo-chamado')">
-                    <i class="fa-solid fa-plus"></i>
-                    <p>Novo Chamado</p>
-                </button>
-
             </div>
+        </aside>
 
-        </div>
-
-        <div class="header">
-
-            <h1>Painel Administrativo</h1>
-
-            <button id="theme-toggle">
+        <!-- HEADER -->
+        <header class="header">
+            <h1 class="header__title">
+                Painel Administrativo
+            </h1>
+            <button class="theme-toggle" id="theme-toggle">
                 🌙
             </button>
+        </header>
 
-        </div>
+        <!-- MAIN -->
+        <main class="content">
 
-        <div class="main secao" id="painel">
+            <!-- DASHBOARD -->
+            <section class="section" id="painel">
+                <h2 class="section__title">
+                    Meu Painel
+                </h2>
+                <div class="cards-grid">
+                    <article class="card">
+                        <h3 class="card__title">
+                            Chamados Criados
+                        </h3>
+                    </article>
+                    <article class="card">
+                        <h3 class="card__title">
+                            Satisfação do Cliente
+                        </h3>
+                    </article>
+                    <article class="card">
+                        <h3 class="card__title">
+                            Chamados Abertos
+                        </h3>
+                    </article>
+                    <article class="card card--wide">
+                        <h3 class="card__title">
+                            Relatórios
+                        </h3>
+                    </article>
+                    <article class="card">
+                        <h3 class="card__title">
+                            Estatísticas
+                        </h3>
+                    </article>
+                </div>
+            </section>
 
-            <h1 class="subtitle">Meu Painel</h1>
+            <!-- NOVO CHAMADO -->
+            <section class="section hidden" id="novo-chamado">
+                <h2 class="section__title">
+                    Abrir Chamado
+                </h2>
+                <div class="form-wrapper">
+                    <form class="form">
+                        <div class="form-group">
 
-            <div class="grafic1">
-                <h2>Chamados<br>Criados</h2>
-            </div>
+                            <label for="titulo">
+                                Título
+                            </label>
+                            <input
+                                type="text"
+                                id="titulo"
+                                class="input"
+                                placeholder="Digite o título">
+                        </div>
+                        <div class="form-group">
+                            <label for="tag">
+                                Tag
+                            </label>
+                            <select id="tag" class="input">
+                                <option value="">
+                                    Selecione uma tag
+                                </option>
+                                <option value="hardware">
+                                    Hardware
+                                </option>
+                                <option value="software">
+                                    Software
+                                </option>
+                                <option value="rede">
+                                    Rede
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
 
-            <div class="grafic2">
-                <h2>Satisfação do<br>cliente</h2>
-            </div>
+                            <label for="descricao">
+                                Descrição
+                            </label>
+                            <textarea
+                                id="descricao"
+                                class="input textarea"
+                                placeholder="Digite a descrição"></textarea>
 
-            <div class="grafic3">
-                <h2>Chamados<br>Abertos</h2>
-            </div>
+                        </div>
+                        <button class="btn-primary" type="submit">
+                            Abrir Chamado
+                        </button>
 
-            <div class="grafic4">
-                <h2>Chamados<br>Criados</h2>
-            </div>
+                    </form>
 
-            <div class="grafic5">
-                <h2>Chamados<br>Criados</h2>
-            </div>
+                </div>
 
-        </div>
+            </section>
 
-        <div
-            class="abrir-novo-chamado secao hidden"
-            id="novo-chamado">
+        </main>
 
-            <h1 class="subtitle">Abrir Chamado</h1>
-
-            <div class="novo-chamado">
-
-                <form action="">
-
-                    <label>Título:</label>
-
-                    <input
-                        type="text"
-                        name="titulo"
-                        class="input-chamado mulish"
-                        id="titulo-chamado"
-                        placeholder="Digite o título do chamado">
-
-                    <label>Tag:</label>
-
-                    <input
-                        type="text"
-                        name="tag"
-                        class="input-chamado mulish"
-                        id="tag-chamado"
-                        placeholder="Digite a tag do chamado">
-
-                    <label>Descrição:</label>
-
-                    <input
-                        type="text"
-                        name="descricao"
-                        class="input-chamado mulish"
-                        id="descricao-chamado"
-                        placeholder="Digite a descrição do chamado">
-
-                    <button>
-                        Abrir Chamado
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-    </div>
     </div>
 
     <script src="js/Dashboard/dashboard.js"></script>
+
 </body>
 
 </html>
