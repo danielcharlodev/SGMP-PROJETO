@@ -1,64 +1,185 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <title>Exemplo</title>
 </head>
+
 <body>
+
     <div class="container">
+
         <div class="sidebar">
+
             <div class="icon-sidebar">
                 <img src="Senai.jpg" alt="Logo do Senai">
             </div>
-                <div class="links">
-                    <a href="index.html">
-                        <i class="fa-solid fa-house"></i>
-                        Home
-                    </a>
-                    <br>
-                    <a href="novochamado.html">
-                        <i class="fa-solid fa-plus"></i>
-                        Home
-                    </a>
-                </div>
+
+            <div class="sidebar-links">
+
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+
+                <br>
+
+                <a href="novochamado.html">
+                    <i class="fa-solid fa-plus"></i>
+                    Novo Chamado
+                </a>
+
+            </div>
+
         </div>
-        <div class="titulo">
+
+        <div class="header">
             <h1>Painel Administrativo</h1>
         </div>
 
-        <div class="subtitulo">
-            <h1>Meu Painel</h1>
-        </div>
-        
         <div class="main">
-            <div class="grafic1">
-                <h2>Chamados</h2>
-                <h2>Criados</h2>
+
+            <div class="subtitle">
+                <h1>Meus Chamados</h1>
             </div>
-            <div class="grafic2">
-                <h2>Chamados</h2>
-                <h2>Criados</h2>
+<div class="filtros">
+    <button data-filtro="todos">Todos</button>
+    <button data-filtro="analise">Em análise</button>
+    <button data-filtro="andamento">Em andamento</button>
+    <button data-filtro="concluido">Concluídos</button>
+</div>
+            <div class="lista-chamados">
+
+    <div class="chamado">
+
+        <div class="topo">
+
+            <div class="info-topo">
+                <span class="num">#123456</span>
+                <span class="data">• Aberto em 23 de maio</span>
             </div>
-            <div class="grafic3">
-                <h2>Chamados</h2>
-                <h2>Criados</h2>
+
+            <span class="status" data-status="analise">
+                Em análise
+            </span>
+
+        </div>
+
+        <h2 class="titulo">
+            Computador não liga
+        </h2>
+
+        <div class="linha"></div>
+
+        <div class="baixo">
+
+            <div class="usuario">
+                <div class="avatar">DA</div>
+                <p>Daniel</p>
             </div>
-            <div class="grafic4">
-                <h2>Chamados</h2>
-                <h2>Criados</h2>
-            </div>
-            <div class="grafic5">
-                <h2>Chamados</h2>
-                <h2>Criados</h2>
+
+            <div class="infos">
+
+                <div class="grupo">
+                    <span class="label">Prioridade</span>
+                    <span class="prioridade">Alta</span>
+                </div>
+
+                <div class="grupo">
+                    <span class="label">Categoria</span>
+                    <span class="categoria">Hardware</span>
+                </div>
+
             </div>
 
         </div>
-        <div class="box4">
-            Box 4
-        </div>
+
     </div>
+
+</div>
+
+        </div>
+ <div class="footer">
+
+        </div>
+
+
+
+    </div>  
+
+    <div class="modal-bg" id="modal">
+
+    <div class="modal">
+
+        <div class="modal-topo">
+            <h2>Detalhes do Chamado</h2>
+
+            <button id="fechar-modal" type="button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="modal-content">
+
+            <div class="modal-grupo">
+                <span>ID</span>
+                <p>#123456</p>
+            </div>
+
+            <div class="modal-grupo">
+                <span>Título</span>
+                <p>Computador não liga</p>
+            </div>
+
+            <div class="modal-grupo">
+                <span>Autor</span>
+
+                <p>
+                    Daniel
+                </p>
+            </div>
+
+            <div class="modal-grupo">
+                <span>Status</span>
+                <p>Em análise</p>
+            </div>
+
+            <div class="modal-grupo">
+                <span>Prioridade</span>
+                <p>Alta</p>
+            </div>
+
+            <div class="modal-grupo">
+                <span>Responsável</span>
+                <p>Carlos</p>
+            </div>
+
+            <div class="modal-grupo">
+                <span>Categoria</span>
+                <p>Hardware</p>
+            </div>
+
+            <div class="modal-grupo">
+                <span>Descrição</span>
+
+                <p>
+                    O computador não está ligando após queda de energia.
+                </p>
+            </div>
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
