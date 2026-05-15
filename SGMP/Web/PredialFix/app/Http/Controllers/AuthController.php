@@ -17,7 +17,7 @@ class AuthController extends Controller
             'name' => 'required|min:3',
             'cpf' => 'required|size:14',
             'email' => 'required|email|min:10|max:100',
-            'telefone' => 'nullable|size:15',
+            'telefone' => 'nullable|min:14|max:15',
             'endereco' => 'required|min:6',
             'password' => 'required|min:6|confirmed',
             'password_confirmation' => 'required|min:6'

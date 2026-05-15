@@ -1,16 +1,17 @@
-body,html{
+body,
+html {
     height: 100%;
     width: 100%;
     margin: 0;
     overflow: hidden;
 }
 
-body{
+body {
     display: grid;
     grid-template-rows: 15% 1fr 4%;
 }
 
-#separacoes1{
+#separacoes1 {
     grid-row: 1/2;
     background-color: rgb(255, 255, 255);
 
@@ -22,17 +23,17 @@ body{
     text-align: center;
 }
 
-#separacoes1 p{
+#separacoes1 p {
     font-size: x-large;
-    margin-right: -3
+    margin-right: -3;
 }
 
-#separacoes1 img{
+#separacoes1 img {
     width: 20%;
     height: auto;
 }
 
-#separacoes1::after{
+#separacoes1::after {
     content: "";
     width: 100%;
     left: 0px;
@@ -44,7 +45,7 @@ body{
     border-bottom-right-radius: 7px;
 }
 
-.btn-nav{
+.btn-nav {
     display: flex;
     text-align: center;
     justify-content: center;
@@ -56,11 +57,11 @@ body{
     border: 0;
 }
 
-.btn-nav:hover{
+.btn-nav:hover {
     cursor: pointer;
 }
 
-.btns-nav{
+.btns-nav {
     display: flex;
     flex-direction: row;
     gap: 5%;
@@ -72,7 +73,7 @@ body{
     transition: 2s ease;
 }
 
-#btn-nav1{
+#btn-nav1 {
     width: 40%;
     height: 63%;
     background-color: white;
@@ -81,7 +82,7 @@ body{
     text-decoration: none;
 }
 
-#btn-nav2{
+#btn-nav2 {
     width: 45%;
     height: 75%;
     background-color: red;
@@ -90,32 +91,32 @@ body{
     text-decoration: none;
 }
 
-#btn-nav2:hover{
+#btn-nav2:hover {
     transform: scale(1.02);
     transition: ease 1s;
     background-color: white;
     color: red;
 }
 
-#btn-nav1:hover{
+#btn-nav1:hover {
     transform: scale(1.05);
     transition: ease 1s;
     background-color: red;
     color: white;
 }
 
-#logo:hover{
+#logo:hover {
     transform: rotate(360deg);
     transition: 2s ease;
 }
 
-#separacoes2{
+#separacoes2 {
     grid-row: 2/3;
     background-color: rgb(255, 255, 255);
     justify-content: center;
     background: url("../../Imagens/fundo.png");
     background-size: cover;
-    background-position:center;
+    background-position: center;
     background-size: 100%;
     align-items: center;
     display: flex;
@@ -123,9 +124,9 @@ body{
     margin-bottom: 0px;
 }
 
-.cadastro{
+.cadastro {
     padding-top: 2%;
-    gap: 10%;
+    gap: 10px;
     display: flex;
     height: 88%;
     z-index: 2;
@@ -137,7 +138,7 @@ body{
     align-items: center;
 }
 
-.cadastro form{
+.cadastro form {
     display: flex;
     flex-direction: column;
     width: 70%;
@@ -147,7 +148,7 @@ body{
     padding-left: 10%;
 }
 
-.cadastro form button{
+.cadastro form button {
     margin-top: 10%;
     width: 50%;
     min-height: 50px;
@@ -163,14 +164,14 @@ body{
     margin-bottom: 4%;
 }
 
-.cadastro form button:hover{
+.cadastro form button:hover {
     transform: scale(1.02);
     background-color: white;
     color: red;
     transition: ease 0.6s;
 }
 
-.input-cdt{
+.input-cdt {
     margin-bottom: 5px;
     width: 85%;
     min-height: 30px;
@@ -181,17 +182,17 @@ body{
     transition: ease 2s;
 }
 
-.input-cdt:focus{
+.input-cdt:focus {
     outline: 2px solid red;
     transition: ease 0s !important;
 }
 
-.texto-cadastro{
+.texto-cadastro {
     font-size: x-large;
     margin-bottom: 10px;
 }
 
-.texto-cadastro{
+.texto-cadastro {
     display: flex;
     height: 10%;
     width: 100%;
@@ -200,7 +201,7 @@ body{
     text-align: center;
 }
 
-.texto-cadastro::after{
+.texto-cadastro::after {
     content: "";
     width: 24%;
     left: 38%;
@@ -212,7 +213,7 @@ body{
     border-bottom-right-radius: 7px;
 }
 
-#extras-cdt{
+#extras-cdt {
     display: flex;
     flex-direction: row;
     background-color: rgb(255, 255, 255);
@@ -224,31 +225,45 @@ body{
     gap: 10%;
 }
 
-
-#extras-cdt a{
+#extras-cdt a {
     color: rgb(0, 0, 0);
     text-decoration: none;
 }
 
-#extras-cdt a:hover{
+#extras-cdt a:hover {
     color: red;
     text-decoration: underline;
     transition: ease 0.5s;
 }
 
-.error-msg{
-    color: red;
-    font-size: larger;
-    justify-self: center;;
+.errors-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    margin-bottom: 40px;
 }
 
+.error-msg {
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.92);
+    color: #e53e3e;
+    font-size: 18px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
 
+button:hover {
+    cursor: pointer;
+}
 
- /* ======================  */
- /* ======================  */
- /* ======================  */
+/* ======================  */
+/* ======================  */
+/* ======================  */
 
-#separacoes3{
+#separacoes3 {
     grid-row: 3;
     background-color: rgba(253, 255, 254, 1);
     display: flex;
@@ -256,7 +271,7 @@ body{
     align-items: center;
 }
 
-#separacoes3::before{
+#separacoes3::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -266,14 +281,14 @@ body{
 }
 
 .ios {
-  font-family: "Iosevka Charon Mono", monospace;
-  font-weight: 500;
-  font-style: normal;
+    font-family: "Iosevka Charon Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
 }
 
-.mulish{
-  font-family: "Mulish", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: normal;
-  font-style: normal;
+.mulish {
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
 }

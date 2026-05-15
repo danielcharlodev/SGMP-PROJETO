@@ -33,10 +33,14 @@
                         <i class="fa-solid fa-plus"></i>
                         <span>Novo Chamado</span>
                     </button>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button type="submit">Sair</button>
+                    </form>
                 </nav>
             </div>
             <div class="sidebar__bottom">
-                <button class="sidebar__button " onclick="trocarSecao('perfil')">
+                <button class="sidebar__button" onclick="trocarSecao('perfil')">
                     <i class="fa-solid fa-circle-user"></i>
                     <span>Perfil</span>
                 </button>

@@ -30,80 +30,88 @@
       <div class="texto-cadastro">
         <p class="mulish">Crie sua conta:</p>
       </div>
-      <form class="form-cadastro" method="POST" action="/cadastro">
-        @csrf
-        <label class="mulish" for="email-cdt" class="label-email-cdt">Nome Completo:</label>
-        <input
-          type="text"
-          name="name"
-          id="nome-cdt"
-          class="input-cdt mulish"
-          placeholder="Digite seu nome" />
+      <div class="errors-container">
         @error('name')
         <span class="error-msg mulish">{{ $message }}</span>
         @enderror
-        <label class="mulish" for="email-cdt" class="label-email-cdt">CPF:</label>
-        <input
-          type="text"
-          name="cpf"
-          id="cpf-cdt"
-          class="input-cdt mulish"
-          placeholder="Digite seu CPF" />
         @error('cpf')
         <span class="error-msg mulish">{{ $message }}</span>
         @enderror
-        <label class="mulish" for="email-cdt" class="label-email-cdt">E-mail:</label>
-        <input
-          type="text"
-          name="email"
-          id="email-cdt"
-          class="input-cdt mulish"
-          placeholder="Digite seu e-mail" />
         @error('email')
         <span class="error-msg mulish">{{ $message }}</span>
         @enderror
-        <label class="mulish" for="telefone-cdt" class="label-telefone-cdt">Telefone:</label>
-        <input
-          type="text"
-          name="telefone"
-          id="telefone-cdt"
-          class="input-cdt mulish"
-          placeholder="Digite seu telefone" />
         @error('telefone')
         <span class="error-msg mulish">{{ $message }}</span>
         @enderror
-        <label class="mulish" for="endereco-cdt" class="label-endereco-cdt">Endereço:</label>
-        <input
-          type="text"
-          name="endereco"
-          id="endereco-cdt"
-          class="input-cdt mulish"
-          placeholder="Digite seu endereço" />
         @error('endereco')
         <span class="error-msg mulish">{{ $message }}</span>
         @enderror
-        <label class="mulish" for="senha-cdt" class="label-senha-cdt">Senha:</label>
-        <input
-          type="password"
-          name="password"
-          id=" senha-cdt"
-          class="input-cdt mulish"
-          placeholder="Digite sua senha" />
         @error('password')
         <span class="error-msg mulish">{{ $message }}</span>
         @enderror
-
-        <label class="mulish" for="senha-cdt" class="label-senha-cdt">Confirmar senha:</label>
-        <input
-          type="password"
-          name="password_confirmation"
-          id="confirmar-senha-cdt"
-          class="input-cdt mulish"
-          placeholder="Digite sua senha" />
         @error('password_confirmation')
         <span class="error-msg mulish">{{ $message }}</span>
         @enderror
+      </div>
+      <form class="form-cadastro" method="POST" action="/cadastro">
+        @csrf
+        <label class="mulish label-email-cdt" for="nome_cdt">Nome Completo:</label>
+        <input
+          type="text"
+          name="name"
+          id="nome_cdt"
+          class="input-cdt mulish"
+          placeholder="Digite seu nome" />
 
+        <label class="mulish label-email-cdt" for="cpf_cdt">CPF:</label>
+        <input
+          type="text"
+          name="cpf"
+          id="cpf_cdt"
+          class="input-cdt mulish"
+          placeholder="Digite seu CPF" />
+
+        <label class="mulish label-email-cdt" for="email_cdt">E-mail:</label>
+        <input
+          type="text"
+          name="email"
+          id="email_cdt"
+          class="input-cdt mulish"
+          placeholder="Digite seu e-mail"
+          autocomplete="off" />
+
+        <label class="mulish label-telefone-cdt" for="telefone_cdt">Telefone:</label>
+        <input
+          type="text"
+          name="telefone"
+          id="telefone_cdt"
+          class="input-cdt mulish"
+          placeholder="Digite seu telefone" />
+
+        <label class="mulish label-endereco-cdt" for="endereco_cdt">Endereço:</label>
+        <input
+          type="text"
+          name="endereco"
+          id="endereco_cdt"
+          class="input-cdt mulish"
+          placeholder="Digite seu endereço" />
+
+        <label class="mulish label-senha-cdt" for="senha_cdt">Senha:</label>
+        <input
+          type="password"
+          name="password"
+          id="senha_cdt"
+          class="input-cdt mulish"
+          placeholder="Digite sua senha"
+          autocomplete="off" />
+
+        <label class="mulish label-senha-cdt" for="confirmar_senha_cdt">Confirmar senha:</label>
+        <input
+          type="password"
+          name="password_confirmation"
+          id="confirmar_senha_cdt"
+          class="input-cdt mulish"
+          placeholder="Digite sua senha" />
 
         <button type="submit" class="mulish" class="conectar-btn">
           Criar conta
@@ -118,7 +126,7 @@
     <p class="mulish">&copy;Todos os direitos reservados ao grupo 5</p>
   </div>
 
-  <script src="js/cadastro.js"></script>
+  <script src="js/cadastro/cadastro.js"></script>
 </body>
 
 </html>

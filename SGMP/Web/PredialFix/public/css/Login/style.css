@@ -249,7 +249,7 @@ body{
 
 .error-msg{
     color: red;
-    font-size: larger;
+    font-size: 18px;
     justify-self: center;;
 }
 

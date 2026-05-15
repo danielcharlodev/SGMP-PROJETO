@@ -107,26 +107,28 @@ body {
     flex-direction: column;
 }
 
+.sidebar__bottom{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar__button:last-of-type{
+    border-top: 1px solid var(--border-color);
+}
+
 .sidebar__button {
     height: 72px;
 
     border: none;
     border-bottom: 1px solid var(--border-color);
-
     background: transparent;
-
     display: flex;
     align-items: center;
     gap: 14px;
-
     padding: 0 24px;
-
     color: var(--text-primary);
-
     font-size: 18px;
-
     transition: var(--transition);
-
     cursor: pointer;
 }
 
@@ -166,17 +168,12 @@ body {
 .theme-toggle {
     position: absolute;
     right: 24px;
-
     width: 50px;
     height: 50px;
-
     border-radius: 50%;
     border: none;
-
     background-color: var(--card-bg);
-
     cursor: pointer;
-
     transition: var(--transition);
 }
 
@@ -190,7 +187,6 @@ body {
 
 .content {
     grid-area: content;
-
     padding: 40px;
 }
 
@@ -359,6 +355,11 @@ body {
     }
 
     .sidebar__nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar__bottom {
         flex-direction: row;
         flex-wrap: wrap;
     }
