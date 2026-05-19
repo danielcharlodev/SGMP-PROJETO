@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('telefone',15)->nullable();
             $table->enum('tipo',['admin','gerente','funcionario','solicitante','user'])->default('user');
             $table->string('endereco')->nullable();
+            $table->string('caminho_imagem')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

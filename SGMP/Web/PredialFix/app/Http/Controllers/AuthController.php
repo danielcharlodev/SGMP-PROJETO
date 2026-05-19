@@ -35,7 +35,10 @@ class AuthController extends Controller
                 'endereco' => $request->endereco,
                 'password' => Hash::make($request->password)
             ]);
-            return redirect('/login');
+            
+            return redirect()
+            ->route('login')
+            ->with('success', 'Conta criada com sucesso!');
         }
     }
 

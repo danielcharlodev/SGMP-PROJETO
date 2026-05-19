@@ -31,6 +31,7 @@ button.addEventListener('click', () => {
 const secoes=[
     document.getElementById('painel'),
     document.getElementById('novo-chamado'),
+    document.getElementById('perfil')
 ];
 
 function trocarSecao(secao){
@@ -40,6 +41,14 @@ function trocarSecao(secao){
     document.getElementById(secao).classList.remove('hidden');
 }
 
-function teste(){
-    alert('Teste');
+const modal = document.getElementById('modal-editar-perfil');
+const abrir = document.getElementById('modal-abrir-edicao');
+const fechar = document.getElementById("modal-cancelar-edicao");
+
+abrir.onclick = function() {
+    modal.style.display = "flex";
+}
+
+fechar.onclick = function() {
+    modal.style.display = "none";
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('budget_id')->nullable()->constrained('budgets');
             $table->unsignedInteger('number')->unique();
             $table->string('title');
+            $table->string('caminho_imagem')->nullable();
             $table->text('description');
             $table->enum('status',['pendente','em_analise','aguardando_material', 'em_andamento', 'negado', 'finalizado','cancelado'])->default('pendente');
             $table->enum('tag',['eletrica', 'infraestrutura']);
