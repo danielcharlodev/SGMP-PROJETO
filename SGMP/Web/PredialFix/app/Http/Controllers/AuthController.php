@@ -49,11 +49,11 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator);
         } else {
-            $credencials = [
+            $credentials = [
                 'email' => $request->email,
                 'password' => $request->password
             ];
-            if (Auth::attempt($credencials)) {
+            if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
                 return redirect('/dashboard');
             } else {
