@@ -18,10 +18,17 @@ button.addEventListener("click", () => {
     button.innerHTML = darkMode ? "☀️" : "🌙";
 });
 
+<<<<<<< HEAD
 const secoes = [
     document.getElementById("painel"),
     document.getElementById("novo-chamado"),
     document.getElementById("buscar-chamados")
+=======
+const secoes=[
+    document.getElementById('painel'),
+    document.getElementById('novo-chamado'),
+    document.getElementById('perfil')
+>>>>>>> da798ba6ddd6f5f8453c6ed0a8dcbb69f1b94b90
 ];
 
 function trocarSecao(secao) {
@@ -31,6 +38,7 @@ function trocarSecao(secao) {
     document.getElementById(secao).classList.remove("hidden");
 }
 
+<<<<<<< HEAD
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -150,3 +158,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+=======
+const modal = document.getElementById('modal-editar-perfil');
+const abrir = document.getElementById('modal-abrir-edicao');
+const fechar = document.getElementById("modal-cancelar-edicao");
+
+abrir.onclick = function() {
+    modal.style.display = "flex";
+}
+
+fechar.onclick = function() {
+    modal.style.display = "none";
+}
+>>>>>>> da798ba6ddd6f5f8453c6ed0a8dcbb69f1b94b90

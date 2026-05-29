@@ -65,6 +65,7 @@
                         <i class="fa-solid fa-plus"></i>
                         <span>Novo Chamado</span>
                     </button>
+<<<<<<< HEAD
                     @endif
 
                     <button class="sidebar__button" onclick="trocarSecao('buscar-chamados')">
@@ -84,6 +85,8 @@
                         <button type="submit">Sair</button>
                     </form>
                 </nav>
+=======
+>>>>>>> da798ba6ddd6f5f8453c6ed0a8dcbb69f1b94b90
             </div>
 
             <div class="sidebar__bottom">
@@ -227,6 +230,7 @@
                 </div>
             </section>
 
+<<<<<<< HEAD
             <section class="section {{ session('active_section') === 'buscar-chamados' ? '' : 'hidden' }}" id="buscar-chamados">
                 <div class="tickets-page">
 
@@ -628,6 +632,62 @@
             </section>
             @endif
 
+=======
+            <section class="perfil hidden" id="perfil">
+                <h2 class="section__title">Perfil do Usuário</h2>
+                <div class="perfil-info">
+                    <div class="avatar-perfil">
+                        <div class="foto-perfil"><img src="" alt=""></div>
+                        <p><strong>{{ auth()->user()->name }}</strong> </p>
+                    </div>
+                    <div class="detalhes-perfil">
+                        <h3>Detalhes do Perfil</h3>
+                        <div class="informacoes">
+                            <label for="nome-perfil">Nome:</label>
+                            <input type="text" disabled  placeholder="{{ auth()->user()->name }}">
+                            <label for="cpf-perfil">CPF:</label>
+                            <input type="text" disabled placeholder="{{ auth()->user()->cpf }}">
+                            <label for="email-perfil">Email:</label>
+                            <input type="email" disabled  placeholder="{{ auth()->user()->email }}">
+                            <label for="telefone-perfil">Telefone:</label>
+                            <input type="tel" disabled  placeholder="{{ auth()->user()->telefone }}">
+                            <label for="endereco-perfil">Endereço:</label>
+                            <input type="text" disabled  placeholder="{{ auth()->user()->endereco }}">
+                        </div>
+                    </div>
+                    <div class="acoes-perfil">
+                        <button class="editar-perfil" id="modal-abrir-edicao">Editar Perfil</button>
+                        <form action="/logout" method="post">
+                            @csrf
+                            <button type="submit" class="sair-perfil">Sair</button>
+                        </form>
+                        
+                    </div>
+                </div>
+                <div class="modal-editar-perfil" id="modal-editar-perfil">
+                    <div class="modal-content">
+                        <h3>Editar Perfil</h3>
+                        <form>
+                            <label for="nome">Novo Nome:</label>
+                            <input type="text" id="nome" name="nome" value="">
+                            <label for="telefone">Novo Telefone:</label>
+                            <input type="tel" id="telefone" name="telefone" value="">
+                            <label for="endereco">Novo Endereço:</label>
+                            <input type="text" id="endereco" name="endereco" value="">
+                            <label for="senha">Nova Senha:</label>
+                            <input type="password" id="senha" name="senha" placeholder="Digite a nova senha">
+                            <label for="confirmar-nova-senha">Confirmar Nova Senha:</label>
+                            <input type="password" id="confirmar-nova-senha" name="confirmar-nova-senha" placeholder="Confirmar nova senha">
+                            <div class="acoes-edicao">
+                                <button id="modal-cancelar-edicao">Cancelar</button>
+                                <button id="modal-salvar-edicao">Salvar Alterações</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+>>>>>>> da798ba6ddd6f5f8453c6ed0a8dcbb69f1b94b90
         </main>
 
     </div>

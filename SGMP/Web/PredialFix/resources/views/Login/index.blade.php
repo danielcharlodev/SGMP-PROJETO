@@ -30,6 +30,7 @@
       <div class="texto-login">
         <p class="mulish">Acesse sua conta:</p>
       </div>
+      
       <form class="form-login" method="POST" action="/login">
         @csrf
         <label class="mulish" for="email-lgn" id="label-email-lgn">E-mail:</label>
