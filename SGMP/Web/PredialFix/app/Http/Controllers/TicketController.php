@@ -118,6 +118,32 @@ class TicketController extends Controller
             ->with('active_section', 'buscar-chamados');
     }
 
+    public function updateStatus(Request $request, Ticket $ticket)
+    {
+        $user = auth()->user();
+
+        if (!in_array($user->tipo, ['admin', 'gerente', 'funcionario'])) {
+            abort(403);
+        }
+
+        if ($user->tipo === 'funcionario' && $ticket->responsible_id !== $user->id) {
+            abort(403);
+        }
+
+        $request->validate([
+            'status' => 'required|in:pendente,em_analise,aguardando_material,em_andamento,negado,finalizado,cancelado',
+        ]);
+
+        $ticket->update([
+            'status' => $request->status,
+            'finished_at' => $request->status === 'finalizado' ? now() : $ticket->finished_at,
+        ]);
+
+        return redirect('/dashboard')
+            ->with('success', 'Status do chamado atualizado!')
+            ->with('active_section', 'buscar-chamados');
+    }
+
     public function destroy(Ticket $ticket)
     {
         $user = auth()->user();

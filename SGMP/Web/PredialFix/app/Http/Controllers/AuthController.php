@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -19,8 +18,8 @@ class AuthController extends Controller
             'email' => 'required|email|min:10|max:100',
             'telefone' => 'nullable|min:14|max:15',
             'endereco' => 'required|min:6',
-            'password' => 'required|min:6|confirmed',
-            'password_confirmation' => 'required|min:6'
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required|min:8'
         ])->stopOnFirstFailure();
 
         if ($validator->fails()) {
@@ -31,9 +30,9 @@ class AuthController extends Controller
                 'email' => $request->email,
                 'cpf' => $request->cpf,
                 'telefone' => $request->telefone,
-                'tipo' => 'user',
+                'tipo' => 'solicitante',
                 'endereco' => $request->endereco,
-                'password' => Hash::make($request->password)
+                'password' => $request->password
             ]);
             
             return redirect()
@@ -73,5 +72,37 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/login');
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $user = auth()->user();
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'telefone' => 'nullable|string|max:15',
+            'endereco' => 'nullable|string|max:255',
+            'password' => 'nullable|min:8|confirmed',
+        ], [
+            'name.required' => 'O nome é obrigatório.',
+            'password.min' => 'A senha deve ter pelo menos 8 caracteres.',
+            'password.confirmed' => 'As senhas não coincidem.',
+        ]);
+
+        $data = [
+            'name' => $request->name,
+            'telefone' => $request->telefone,
+            'endereco' => $request->endereco,
+        ];
+
+        if ($request->filled('password')) {
+            $data['password'] = $request->password;
+        }
+
+        $user->update($data);
+
+        return redirect('/dashboard')
+            ->with('success', 'Perfil atualizado com sucesso!')
+            ->with('active_section', 'perfil');
     }
 }

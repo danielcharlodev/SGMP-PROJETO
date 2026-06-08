@@ -4,7 +4,6 @@ const savedTheme = localStorage.getItem("theme");
 
 if (savedTheme === "dark") {
     document.body.classList.add("dark-mode");
-
     button.innerHTML = "☀️";
 }
 
@@ -18,34 +17,91 @@ button.addEventListener("click", () => {
     button.innerHTML = darkMode ? "☀️" : "🌙";
 });
 
-<<<<<<< HEAD
 const secoes = [
     document.getElementById("painel"),
     document.getElementById("novo-chamado"),
-    document.getElementById("buscar-chamados")
-=======
-const secoes=[
-    document.getElementById('painel'),
-    document.getElementById('novo-chamado'),
-    document.getElementById('perfil')
->>>>>>> da798ba6ddd6f5f8453c6ed0a8dcbb69f1b94b90
-];
+    document.getElementById("buscar-chamados"),
+    document.getElementById("controle-acessos"),
+    document.getElementById("perfil"),
+].filter(Boolean);
 
-function trocarSecao(secao) {
-    secoes.forEach((sec) => {
-        sec.classList.add("hidden");
+const secaoParaNav = {
+    painel: "painel",
+    "novo-chamado": "novo-chamado",
+    "buscar-chamados": "buscar-chamados",
+    "controle-acessos": "controle-acessos",
+    perfil: "perfil",
+};
+
+function marcarNavAtivo(secao) {
+    document.querySelectorAll(".sidebar__button").forEach((btn) => {
+        btn.classList.remove("active");
     });
-    document.getElementById(secao).classList.remove("hidden");
+
+    document.querySelectorAll(".sidebar__button").forEach((btn) => {
+        const onclick = btn.getAttribute("onclick") || "";
+        if (onclick.includes(`'${secao}'`)) {
+            btn.classList.add("active");
+        }
+    });
 }
 
-<<<<<<< HEAD
+function trocarSecao(secao) {
+    secoes.forEach((s) => s.classList.add("hidden"));
 
+    const target = document.getElementById(secao);
+
+    if (target) {
+        target.classList.remove("hidden");
+    }
+
+    marcarNavAtivo(secao);
+}
+
+function fecharModal() {
+    const modal = document.getElementById("modal-editar-perfil");
+    if (modal) modal.style.display = "none";
+}
+
+function abrirModalPerfil(somenteSenha = false) {
+    const modal = document.getElementById("modal-editar-perfil");
+    const titulo = document.getElementById("modal-titulo");
+    const camposSenha = document.querySelectorAll(".campo-senha");
+    const campoNome = document.getElementById("campo-nome");
+    const campoTelefone = document.getElementById("campo-telefone");
+    const campoEndereco = document.getElementById("campo-endereco");
+
+    if (!modal) return;
+
+    if (somenteSenha) {
+        titulo.textContent = "Alterar senha";
+        campoNome.classList.add("hidden");
+        campoTelefone.classList.add("hidden");
+        campoEndereco.classList.add("hidden");
+        camposSenha.forEach((c) => c.classList.remove("hidden"));
+    } else {
+        titulo.textContent = "Editar perfil";
+        campoNome.classList.remove("hidden");
+        campoTelefone.classList.remove("hidden");
+        campoEndereco.classList.remove("hidden");
+        camposSenha.forEach((c) => c.classList.add("hidden"));
+    }
+
+    modal.style.display = "flex";
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const hash = window.location.hash.replace("#", "");
 
-    if (hash) {
+    if (hash && document.getElementById(hash)) {
         trocarSecao(hash);
+    } else {
+        const visible = secoes.find((s) => !s.classList.contains("hidden"));
+        if (visible) {
+            marcarNavAtivo(visible.id);
+        } else {
+            trocarSecao("painel");
+        }
     }
 
     const toast = document.querySelector(".toast");
@@ -54,120 +110,81 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             toast.style.opacity = "0";
             toast.style.transform = "translateX(100%)";
-
-            setTimeout(() => {
-                toast.remove();
-            }, 300);
+            setTimeout(() => toast.remove(), 300);
         }, 5000);
     }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.ticket-filter');
-    const ticketCards = document.querySelectorAll('.ticket-list-card');
-    const searchInput = document.getElementById('search-ticket');
-
-    let currentFilter = 'todos';
+    const filterButtons = document.querySelectorAll(".ticket-filter");
+    const ticketCards = document.querySelectorAll(".ticket-list-card");
+    const searchInput = document.getElementById("search-ticket");
+    let currentFilter = "todos";
 
     function filterTickets() {
-        const searchValue = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        const searchValue = searchInput ? searchInput.value.toLowerCase().trim() : "";
 
         ticketCards.forEach((card) => {
             const status = card.dataset.status;
             const searchableText = card.dataset.search.toLowerCase();
-
-            const matchFilter = currentFilter === 'todos' || status === currentFilter;
+            const matchFilter = currentFilter === "todos" || status === currentFilter;
             const matchSearch = searchableText.includes(searchValue);
-
-            if (matchFilter && matchSearch) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
+            card.style.display = matchFilter && matchSearch ? "block" : "none";
         });
     }
 
-    filterButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach((btn) => {
-                btn.classList.remove('active');
-            });
-
-            button.classList.add('active');
-
-            currentFilter = button.dataset.filter;
-
+    filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            filterButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentFilter = btn.dataset.filter;
             filterTickets();
         });
     });
 
-    if (searchInput) {
-        searchInput.addEventListener('input', filterTickets);
-    }
-});
+    if (searchInput) searchInput.addEventListener("input", filterTickets);
 
-document.addEventListener('DOMContentLoaded', () => {
-    const expandButtons = document.querySelectorAll('.expand-user-btn');
-
-    expandButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const targetId = button.dataset.target;
+    document.querySelectorAll(".expand-user-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const targetId = btn.dataset.target;
             const detailsRow = document.getElementById(targetId);
+            if (!detailsRow) return;
 
-            if (!detailsRow) {
-                return;
-            }
-
-            detailsRow.classList.toggle('hidden');
-            button.classList.toggle('active');
-
-            if (detailsRow.classList.contains('hidden')) {
-                button.innerHTML = '<i class="fa-solid fa-chevron-down"></i> Expandir';
-            } else {
-                button.innerHTML = '<i class="fa-solid fa-chevron-down"></i> Recolher';
-            }
+            detailsRow.classList.toggle("hidden");
+            btn.classList.toggle("active");
+            btn.innerHTML = detailsRow.classList.contains("hidden")
+                ? '<i class="fa-solid fa-chevron-down"></i> Expandir'
+                : '<i class="fa-solid fa-chevron-up"></i> Recolher';
         });
     });
 
-    const searchUserInput = document.getElementById('search-user');
-    const userRows = document.querySelectorAll('.user-row');
+    const searchUserInput = document.getElementById("search-user");
+    const userRows = document.querySelectorAll(".user-row");
 
     if (searchUserInput) {
-        searchUserInput.addEventListener('input', () => {
+        searchUserInput.addEventListener("input", () => {
             const searchValue = searchUserInput.value.toLowerCase().trim();
-
             userRows.forEach((row) => {
                 const text = row.dataset.search.toLowerCase();
-                const detailsId = row.querySelector('.expand-user-btn')?.dataset.target;
+                const detailsId = row.querySelector(".expand-user-btn")?.dataset.target;
                 const detailsRow = detailsId ? document.getElementById(detailsId) : null;
 
                 if (text.includes(searchValue)) {
-                    row.style.display = 'table-row';
+                    row.style.display = "table-row";
+                    if (detailsRow) detailsRow.style.display = "";
                 } else {
-                    row.style.display = 'none';
-
-                    if (detailsRow) {
-                        detailsRow.style.display = 'none';
-                    }
-                }
-
-                if (text.includes(searchValue) && detailsRow) {
-                    detailsRow.style.display = '';
+                    row.style.display = "none";
+                    if (detailsRow) detailsRow.style.display = "none";
                 }
             });
         });
     }
+
+    document.getElementById("modal-abrir-edicao")?.addEventListener("click", () => abrirModalPerfil(false));
+    document.getElementById("modal-abrir-senha")?.addEventListener("click", () => abrirModalPerfil(true));
+    document.getElementById("modal-cancelar-edicao")?.addEventListener("click", fecharModal);
+    document.getElementById("modal-cancelar-edicao-2")?.addEventListener("click", fecharModal);
+
+    const modal = document.getElementById("modal-editar-perfil");
+    modal?.addEventListener("click", (e) => {
+        if (e.target === modal) fecharModal();
+    });
 });
-=======
-const modal = document.getElementById('modal-editar-perfil');
-const abrir = document.getElementById('modal-abrir-edicao');
-const fechar = document.getElementById("modal-cancelar-edicao");
-
-abrir.onclick = function() {
-    modal.style.display = "flex";
-}
-
-fechar.onclick = function() {
-    modal.style.display = "none";
-}
->>>>>>> da798ba6ddd6f5f8453c6ed0a8dcbb69f1b94b90
