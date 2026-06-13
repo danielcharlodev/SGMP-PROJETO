@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../core/app_theme.dart';
 import '../services/auth_service.dart';
 import '../widgets/senai_app_bar.dart';
-import 'home_screen.dart';
+import '../widgets/theme_toggle_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -44,40 +44,45 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       return;
     }
-
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => const HomeScreen()),
-    );
   }
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
-      appBar: const SenaiAppBar(),
+      appBar: SenaiAppBar(
+        actions: const [ThemeToggleButton()],
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Column(
           children: [
             const SizedBox(height: 24),
-            const Text(
+            Text(
               'Sistema de Gestão\nde Manutenção Predial',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              style: theme.textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.w500,
+              ),
             ),
             const SizedBox(height: 32),
             Container(
               constraints: const BoxConstraints(maxWidth: 400),
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: theme.cardTheme.color ?? theme.colorScheme.surface,
                 borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.08),
-                    blurRadius: 16,
-                    offset: const Offset(0, 4),
-                  ),
-                ],
+                border: Border.all(color: AppTheme.cardBorderColor(context)),
+                boxShadow: theme.brightness == Brightness.light
+                    ? [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.08),
+                          blurRadius: 16,
+                          offset: const Offset(0, 4),
+                        ),
+                      ]
+                    : null,
               ),
               child: Form(
                 key: _formKey,
@@ -162,11 +167,19 @@ class _LoginScreenState extends State<LoginScreen> {
 class _DemoAccountsHint extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.grey.shade100,
+        color: isDark
+            ? AppTheme.darkSurface
+            : Colors.grey.shade100,
         borderRadius: BorderRadius.circular(8),
+        border: isDark
+            ? Border.all(color: AppTheme.darkBorder)
+            : null,
       ),
       child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,8 +189,9 @@ class _DemoAccountsHint extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
           ),
           SizedBox(height: 6),
-          Text('aluno@senai.com — Aluno/Funcionário', style: TextStyle(fontSize: 11)),
-          Text('tecnico@senai.com — Técnico', style: TextStyle(fontSize: 11)),
+          Text('solicitante@senai.com — Solicitante', style: TextStyle(fontSize: 11)),
+          Text('funcionario@senai.com — Funcionário', style: TextStyle(fontSize: 11)),
+          Text('gerente@senai.com — Gerente', style: TextStyle(fontSize: 11)),
           Text('admin@senai.com — Administrador', style: TextStyle(fontSize: 11)),
         ],
       ),

@@ -1,7 +1,8 @@
 enum UserRole {
-  comum('Aluno / Funcionário'),
-  tecnico('Responsável técnico'),
-  administrador('Administrador');
+  administrador('Administrador'),
+  gerente('Gerente'),
+  funcionario('Funcionário'),
+  solicitante('Solicitante');
 
   const UserRole(this.label);
   final String label;

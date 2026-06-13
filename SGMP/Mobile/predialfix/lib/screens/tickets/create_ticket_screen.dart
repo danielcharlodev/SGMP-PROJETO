@@ -6,6 +6,7 @@ import '../../models/problem_type.dart';
 import '../../models/ticket_priority.dart';
 import '../../services/auth_service.dart';
 import '../../services/ticket_service.dart';
+import '../../widgets/theme_toggle_button.dart';
 
 class CreateTicketScreen extends StatefulWidget {
   const CreateTicketScreen({super.key});
@@ -19,7 +20,7 @@ class _CreateTicketScreenState extends State<CreateTicketScreen> {
   final _titleController = TextEditingController();
   final _descriptionController = TextEditingController();
   String _location = AppConstants.locations.first;
-  ProblemType _type = ProblemType.outros;
+  ProblemType _type = ProblemType.eletrica;
   TicketPriority _priority = TicketPriority.media;
   bool _saving = false;
 
@@ -61,16 +62,21 @@ class _CreateTicketScreenState extends State<CreateTicketScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Abrir chamado')),
+      appBar: AppBar(
+        title: const Text('Abrir chamado'),
+        actions: const [ThemeToggleButton()],
+      ),
       body: Form(
         key: _formKey,
         child: ListView(
           padding: const EdgeInsets.all(20),
           children: [
-            const Text(
+            Text(
               'Descreva o problema real do local. Chamados falsos (trote) '
               'podem resultar em bloqueio do seu acesso.',
-              style: TextStyle(color: Colors.black54),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
             ),
             const SizedBox(height: 20),
             TextFormField(

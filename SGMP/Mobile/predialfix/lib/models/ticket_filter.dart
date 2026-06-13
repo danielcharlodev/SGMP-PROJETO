@@ -9,6 +9,7 @@ class TicketFilter {
     this.problemType,
     this.location,
     this.createdByUserId,
+    this.assignedToUserId,
     this.priority,
     this.searchQuery,
   });
@@ -17,6 +18,7 @@ class TicketFilter {
   final ProblemType? problemType;
   final String? location;
   final String? createdByUserId;
+  final String? assignedToUserId;
   final TicketPriority? priority;
   final String? searchQuery;
 
@@ -25,6 +27,7 @@ class TicketFilter {
       problemType == null &&
       (location == null || location!.isEmpty) &&
       createdByUserId == null &&
+      assignedToUserId == null &&
       priority == null &&
       (searchQuery == null || searchQuery!.trim().isEmpty);
 
@@ -34,6 +37,7 @@ class TicketFilter {
     if (problemType != null) count++;
     if (location != null && location!.isNotEmpty) count++;
     if (createdByUserId != null) count++;
+    if (assignedToUserId != null) count++;
     if (priority != null) count++;
     if (searchQuery != null && searchQuery!.trim().isNotEmpty) count++;
     return count;
@@ -44,12 +48,14 @@ class TicketFilter {
     ProblemType? problemType,
     String? location,
     String? createdByUserId,
+    String? assignedToUserId,
     TicketPriority? priority,
     String? searchQuery,
     bool clearStatuses = false,
     bool clearProblemType = false,
     bool clearLocation = false,
     bool clearCreatedBy = false,
+    bool clearAssignedTo = false,
     bool clearPriority = false,
     bool clearSearch = false,
   }) {
@@ -60,17 +66,23 @@ class TicketFilter {
       location: clearLocation ? null : (location ?? this.location),
       createdByUserId:
           clearCreatedBy ? null : (createdByUserId ?? this.createdByUserId),
+      assignedToUserId: clearAssignedTo
+          ? null
+          : (assignedToUserId ?? this.assignedToUserId),
       priority: clearPriority ? null : (priority ?? this.priority),
       searchQuery: clearSearch ? null : (searchQuery ?? this.searchQuery),
     );
   }
 
-  static TicketFilter forTechnicianPending() => TicketFilter(
+  static TicketFilter forGerentePending() => TicketFilter(
         statuses: {TicketStatus.aberto, TicketStatus.emExecucao},
       );
 
   static TicketFilter forUserTickets(String userId) =>
       TicketFilter(createdByUserId: userId);
+
+  static TicketFilter forAssignedTickets(String userId) =>
+      TicketFilter(assignedToUserId: userId);
 
   static TicketFilter forLocation(String location) =>
       TicketFilter(location: location);

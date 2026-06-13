@@ -61,7 +61,10 @@ class TicketCard extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   'Aberto por: ${ticket.createdByName}',
-                  style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ],
               const SizedBox(height: 8),
@@ -71,7 +74,10 @@ class TicketCard extends StatelessWidget {
                   PriorityChip(priority: ticket.priority),
                   Text(
                     dateFmt.format(ticket.createdAt),
-                    style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
                   ),
                 ],
               ),

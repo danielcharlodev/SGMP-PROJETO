@@ -170,7 +170,7 @@ class _TicketFilterSheetState extends State<TicketFilterSheet> {
                   items: [
                     const DropdownMenuItem(value: null, child: Text('Todos')),
                     ...widget.usersForFilter!
-                        .where((u) => u.role == UserRole.comum)
+                        .where((u) => u.role == UserRole.solicitante)
                         .map(
                       (u) => DropdownMenuItem(
                         value: u.id,

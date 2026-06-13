@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 import '../models/app_user.dart';
+import '../models/dashboard_stats.dart';
 import '../models/problem_type.dart';
 import '../models/ticket.dart';
 import '../models/ticket_filter.dart';
@@ -33,6 +34,11 @@ class TicketService extends ChangeNotifier {
           .where((t) => t.createdByUserId == filter.createdByUserId)
           .toList();
     }
+    if (filter.assignedToUserId != null) {
+      result = result
+          .where((t) => t.assignedToUserId == filter.assignedToUserId)
+          .toList();
+    }
     if (filter.priority != null) {
       result = result.where((t) => t.priority == filter.priority).toList();
     }
@@ -48,6 +54,50 @@ class TicketService extends ChangeNotifier {
 
     result.sort((a, b) => b.createdAt.compareTo(a.createdAt));
     return result;
+  }
+
+  List<Ticket> recentTickets({int limit = 5}) {
+    final sorted = List<Ticket>.from(MockDatabase.tickets)
+      ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+    return sorted.take(limit).toList();
+  }
+
+  DashboardStats getDashboardStats({
+    required int usuariosCadastrados,
+    required int funcionariosAtivos,
+  }) {
+    final tickets = MockDatabase.tickets;
+    final now = DateTime.now();
+    final pendentes =
+        tickets.where((t) => t.status == TicketStatus.aberto).length;
+    final emAndamento =
+        tickets.where((t) => t.status == TicketStatus.emExecucao).length;
+    final finalizados =
+        tickets.where((t) => t.status == TicketStatus.concluido).length;
+    final total = tickets.length;
+    final taxa = total == 0 ? 0.0 : (finalizados / total) * 100;
+    final abertosEsteMes = tickets
+        .where((t) =>
+            t.createdAt.year == now.year && t.createdAt.month == now.month)
+        .length;
+
+    final porCategoria = <ProblemType, int>{};
+    for (final type in ProblemType.values) {
+      porCategoria[type] =
+          tickets.where((t) => t.problemType == type).length;
+    }
+
+    return DashboardStats(
+      totalChamados: total,
+      pendentes: pendentes,
+      emAndamento: emAndamento,
+      finalizados: finalizados,
+      taxaResolucao: taxa,
+      abertosEsteMes: abertosEsteMes,
+      usuariosCadastrados: usuariosCadastrados,
+      funcionariosAtivos: funcionariosAtivos,
+      porCategoria: porCategoria,
+    );
   }
 
   Ticket? getById(String id) {
@@ -93,6 +143,20 @@ class TicketService extends ChangeNotifier {
       MockDatabase.tickets[index] = updated;
       notifyListeners();
     }
+  }
+
+  void assignTicket({
+    required String ticketId,
+    required AppUser employee,
+  }) {
+    final ticket = getById(ticketId);
+    if (ticket == null) return;
+
+    updateTicket(ticket.copyWith(
+      assignedToUserId: employee.id,
+      assignedToName: employee.name,
+      updatedAt: DateTime.now(),
+    ));
   }
 
   void updateStatus({
