@@ -117,7 +117,8 @@ Desenvolver um **Back-End robusto e estruturado** capaz de:
 - Responsável por:
   - Prototipagem  
   - Versionamento  
-  - Gestão  
+  - Gestão
+  - Mobile
 - GitHub: [Clique aqui para acessar o perfil](https://github.com/danielcharlodev) 
 
 ---
