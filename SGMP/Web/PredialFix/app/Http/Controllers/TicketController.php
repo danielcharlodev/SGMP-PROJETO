@@ -23,12 +23,14 @@ class TicketController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string|min:10',
             'tag' => 'required|in:eletrica,infraestrutura',
+            'priority' => 'nullable|in:minima,muito_baixa,baixa,moderada,media_alta,alta,critica,emergencial',
         ], [
             'title.required' => 'O título é obrigatório.',
             'description.required' => 'A descrição é obrigatória.',
             'description.min' => 'A descrição deve possuir pelo menos 10 caracteres.',
             'tag.required' => 'Selecione uma categoria.',
             'tag.in' => 'Categoria inválida.',
+            'priority.in' => 'Prioridade inválida.',
         ]);
 
         $ultimoNumero = Ticket::max('number') ?? 0;
@@ -39,6 +41,7 @@ class TicketController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'tag' => $request->tag,
+            'priority' => $request->priority,
             'status' => 'pendente',
         ]);
 
@@ -132,15 +135,17 @@ class TicketController extends Controller
 
         $request->validate([
             'status' => 'required|in:pendente,em_analise,aguardando_material,em_andamento,negado,finalizado,cancelado',
+            'priority' => 'nullable|in:minima,muito_baixa,baixa,moderada,media_alta,alta,critica,emergencial',
         ]);
 
         $ticket->update([
             'status' => $request->status,
+            'priority' => $request->priority,
             'finished_at' => $request->status === 'finalizado' ? now() : $ticket->finished_at,
         ]);
 
         return redirect('/dashboard')
-            ->with('success', 'Status do chamado atualizado!')
+            ->with('success', 'Chamado atualizado!')
             ->with('active_section', 'buscar-chamados');
     }
 

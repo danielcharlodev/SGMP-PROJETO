@@ -5,15 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Stock extends Model
+class StockMovement extends Model
 {
     protected $fillable = [
-        'quantidade',
+        'descricao',
         'item_id',
+        'quantidade',
+        'tipo',
+        'user_id',
     ];
 
     public function item(): BelongsTo
     {
         return $this->belongsTo(Item::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

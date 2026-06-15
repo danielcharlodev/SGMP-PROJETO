@@ -297,6 +297,21 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="priority">Prioridade</label>
+                            <select id="priority" name="priority" class="input">
+                                <option value="">Selecione uma prioridade</option>
+                                <option value="minima" {{ old('priority') == 'minima' ? 'selected' : '' }}>Mínima</option>
+                                <option value="muito_baixa" {{ old('priority') == 'muito_baixa' ? 'selected' : '' }}>Muito Baixa</option>
+                                <option value="baixa" {{ old('priority') == 'baixa' ? 'selected' : '' }}>Baixa</option>
+                                <option value="moderada" {{ old('priority') == 'moderada' ? 'selected' : '' }}>Moderada</option>
+                                <option value="media_alta" {{ old('priority') == 'media_alta' ? 'selected' : '' }}>Média Alta</option>
+                                <option value="alta" {{ old('priority') == 'alta' ? 'selected' : '' }}>Alta</option>
+                                <option value="critica" {{ old('priority') == 'critica' ? 'selected' : '' }}>Crítica</option>
+                                <option value="emergencial" {{ old('priority') == 'emergencial' ? 'selected' : '' }}>Emergencial</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label for="description">Descrição</label>
                             <textarea id="description" name="description" class="input textarea"
                                 placeholder="Descreva o local, o problema e qualquer detalhe importante..."
@@ -344,20 +359,12 @@
                     <div class="tickets-list">
                         @forelse($tickets as $ticket)
                         @php
-                        $statusLabels = [
-                            'pendente' => 'Pendente',
-                            'em_analise' => 'Em análise',
-                            'aguardando_material' => 'Aguardando material',
-                            'em_andamento' => 'Em andamento',
-                            'negado' => 'Negado',
-                            'finalizado' => 'Finalizado',
-                            'cancelado' => 'Cancelado',
-                        ];
                         $tagLabels = [
                             'eletrica' => 'Elétrica',
                             'infraestrutura' => 'Infraestrutura',
                         ];
                         $statusText = $statusLabels[$ticket->status] ?? $ticket->status;
+                        $priorityText = $ticket->priority ? $priorityLabels[$ticket->priority] : 'Não definida';
                         $tagText = $tagLabels[$ticket->tag] ?? $ticket->tag;
                         $authorName = $ticket->author->name ?? 'Usuário';
                         $responsibleName = $ticket->responsible->name ?? 'Não atribuído';
@@ -370,7 +377,7 @@
                         if ($initials === '') $initials = 'US';
                         $searchText = strtolower(
                             $ticket->number . ' ' . $ticket->title . ' ' . $ticket->description . ' ' .
-                            $tagText . ' ' . $statusText . ' ' . $authorName . ' ' . $responsibleName
+                            $tagText . ' ' . $statusText . ' ' . $priorityText . ' ' . $authorName . ' ' . $responsibleName
                         );
                         $canUpdateStatus = in_array($user->tipo, ['admin', 'gerente', 'funcionario'])
                             && ($user->tipo !== 'funcionario' || $ticket->responsible_id === $user->id);
@@ -398,6 +405,10 @@
                                     <div>
                                         <small>Categoria</small>
                                         <strong>{{ $tagText }}</strong>
+                                    </div>
+                                    <div>
+                                        <small>Prioridade</small>
+                                        <strong>{{ $priorityText }}</strong>
                                     </div>
                                     <div>
                                         <small>Responsável</small>
@@ -429,7 +440,13 @@
                                         <option value="{{ $value }}" {{ $ticket->status === $value ? 'selected' : '' }}>{{ $label }}</option>
                                         @endforeach
                                     </select>
-                                    <button type="submit">Atualizar status</button>
+                                    <select name="priority">
+                                        <option value="">Prioridade</option>
+                                        @foreach($priorityLabels as $value => $label)
+                                        <option value="{{ $value }}" {{ $ticket->priority === $value ? 'selected' : '' }}>{{ $label }}</option>
+                                        @endforeach
+                                    </select>
+                                    <button type="submit">Atualizar</button>
                                 </form>
                                 @endif
 

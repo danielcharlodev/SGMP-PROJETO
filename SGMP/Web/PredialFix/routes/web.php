@@ -89,6 +89,17 @@ Route::get('/dashboard', function () {
         'cancelado' => 'Cancelado',
     ];
 
+    $priorityLabels = [
+        'minima' => 'Mínima',
+        'muito_baixa' => 'Muito Baixa',
+        'baixa' => 'Baixa',
+        'moderada' => 'Moderada',
+        'media_alta' => 'Média Alta',
+        'alta' => 'Alta',
+        'critica' => 'Crítica',
+        'emergencial' => 'Emergencial',
+    ];
+
     $funcionarios = collect();
 
     if (in_array($user->tipo, ['admin', 'gerente'])) {
@@ -103,7 +114,7 @@ Route::get('/dashboard', function () {
 
     return view('Dashboard.index', compact(
         'tickets', 'funcionarios', 'users', 'stats',
-        'recentTickets', 'tipoLabels', 'statusLabels'
+        'recentTickets', 'tipoLabels', 'statusLabels', 'priorityLabels'
     ));
 })->middleware('auth')->name('dashboard');
 

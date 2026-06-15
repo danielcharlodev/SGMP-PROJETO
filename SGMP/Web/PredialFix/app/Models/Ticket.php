@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Ticket extends Model
 {
@@ -17,15 +18,21 @@ class Ticket extends Model
         'tag',
         'priority',
         'finished_at',
+        'caminho_imagem',
     ];
 
-    public function author()
+    public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id');
     }
 
-    public function responsible()
+    public function responsible(): BelongsTo
     {
         return $this->belongsTo(User::class, 'responsible_id');
+    }
+
+    public function budget(): BelongsTo
+    {
+        return $this->belongsTo(Budget::class);
     }
 }
